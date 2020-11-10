@@ -1,8 +1,6 @@
-import React, { useCallback, useRef } from 'react';
-import logoImg from '../../assets/logo.png';
+import React from 'react';
 
-import Button from '../../components/Button';
-
+import { Link } from 'react-router-dom';
 import {Conteiner, Content, Background} from './styles';
 
 const SignUp: React.FC = () => {
@@ -18,8 +16,8 @@ const SignUp: React.FC = () => {
                     <input type="password" placeholder="Password"/>
 
                     <nav>
-                        <a href="#">Forgot Password</a>
-                        <a href="dashboard">Sign In</a>
+                        <Link to="#">Forgot Password</Link>
+                        <Link to="/Dashboard">Sign In</Link>
                     </nav>
             </Content>
         </Conteiner>

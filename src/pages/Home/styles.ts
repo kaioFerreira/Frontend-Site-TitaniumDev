@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { shade } from  'polished'
 
 import signUpBackgroundImg from '../../assets/home_background.jpg';
 

@@ -4,6 +4,7 @@ Container,
 Block
 } from './styles';
 
+import { Link } from 'react-router-dom';
 import { RiArrowDropRightLine } from 'react-icons/ri';
 import { BsDot } from 'react-icons/bs';
 
@@ -23,7 +24,7 @@ type ToolsProps = HtmlHTMLAttributes<HTMLElement>;
             <Block isVisible={visibleTools} inVisible={!visibleTools}>
                 <ul>
                     <li>
-                        <a href="#">
+                        <Link to="#">
                             <section>
                                 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g id="Stockholm-icons-/-Design-/-Pen&amp;ruller" stroke="none" stroke-width="1"
@@ -40,51 +41,51 @@ type ToolsProps = HtmlHTMLAttributes<HTMLElement>;
                                 <span>Inputs</span>
                             </section>
                             <RiArrowDropRightLine/>
-                        </a>
+                        </Link>
                         <section >
                             <ul>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Autocomplete</a>
+                                    <Link to="#">Autocomplete</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Buttons</a>
+                                    <Link to="#">Buttons</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Checkboxes</a>
+                                    <Link to="#">Checkboxes</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Pickers</a>
+                                    <Link to="#">Pickers</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Radio Buttons</a>
+                                    <Link to="#">Radio Buttons</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Selects</a>
+                                    <Link to="#">Selects</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Switches</a>
+                                    <Link to="#">Switches</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Text Fields</a>
+                                    <Link to="#">Text Fields</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Transfer List</a>
+                                    <Link to="#">Transfer List</Link>
                                 </li>
                             </ul>
                         </section>
                     </li>
 
                     <li>
-                        <a href="#">
+                        <Link to="#">
                             <section>
                                 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g id="Stockholm-icons-/-Navigation-/-Arrow-from-left" stroke="none" stroke-width="1"
@@ -105,43 +106,43 @@ type ToolsProps = HtmlHTMLAttributes<HTMLElement>;
                                 <span>Navigation</span>
                             </section>
                             <RiArrowDropRightLine/>
-                        </a>
+                        </Link>
                         <section>
                             <ul>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Bottom Navigation</a>
+                                    <Link to="#">Bottom Navigation</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Breadcrumbs</a>
+                                    <Link to="#">Breadcrumbs</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Drawers</a>
+                                    <Link to="#">Drawers</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">NavLinks</a>
+                                    <Link to="#">NavLinks</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Menus</a>
+                                    <Link to="#">Menus</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Steppers</a>
+                                    <Link to="#">Steppers</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Taps</a>
+                                    <Link to="#">Taps</Link>
                                 </li>
                             </ul>
                         </section>
                     </li>
 
                     <li>
-                        <a href="#">
+                        <Link to="#">
                             <section>
                                 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g id="Stockholm-icons-/-Layout-/-Layout-left-panel-1" stroke="none" stroke-width="1"
@@ -157,31 +158,31 @@ type ToolsProps = HtmlHTMLAttributes<HTMLElement>;
                                 <span>Surfaces</span>
                             </section>
                             <RiArrowDropRightLine/>
-                        </a>
+                        </Link>
                         <section>
                             <ul>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">App Bar</a>
+                                    <Link to="#">App Bar</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Paper</a>
+                                    <Link to="#">Paper</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Cards</a>
+                                    <Link to="#">Cards</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Expansion Panels</a>
+                                    <Link to="#">Expansion Panels</Link>
                                 </li>
                             </ul>
                         </section>
                     </li>
 
                     <li>
-                        <a href="#">
+                        <Link to="#">
                             <section>
                                 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g id="Stockholm-icons-/-General-/-Half-star" stroke="none" stroke-width="1" fill="none"
@@ -198,20 +199,20 @@ type ToolsProps = HtmlHTMLAttributes<HTMLElement>;
                                 <span>Feedback</span>
                             </section>
                             <RiArrowDropRightLine/>
-                        </a>
+                        </Link>
                         <section>
                             <ul>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Progress</a>
+                                    <Link to="#">Progress</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Dialogs</a>
+                                    <Link to="#">Dialogs</Link>
                                 </li>
                                 <li>
                                     <BsDot size={20}/>
-                                    <a href="#">Snackbars</a>
+                                    <Link to="#">Snackbars</Link>
                                 </li>
                             </ul>
                         </section>

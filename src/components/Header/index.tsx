@@ -1,9 +1,9 @@
 import React, { useState, HtmlHTMLAttributes } from 'react';
 import {
-GrMenu,
 GrFormClose
 } from 'react-icons/gr';
-import { FiSearch } from 'react-icons/fi';
+
+import { Link } from 'react-router-dom';
 
 import Button from '../Button';
 import ToolBlock from '../../structure/ToolBlock';
@@ -43,10 +43,6 @@ import PhotoProfile from '../../assets/kaio.jpg';
 import File1 from '../../assets/files.png';
 import File2 from '../../assets/files2.png';
 import File3 from '../../assets/files3.png';
-
-
-import { boolean } from 'yup';
-import { getAllByDisplayValue } from '@testing-library/react';
 
 type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
 
@@ -107,7 +103,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                     <MenuLeft isVisible={visibleMenu}>
                         <ul>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <svg width="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <polygon points="0 0 24 0 24 24 0 24"></polygon>
@@ -120,13 +116,13 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                         </g>
                                     </svg>
                                     <span>Dashboard</span>
-                                </a>
+                                </Link>
                             </li>
                             <li>
                                 <h4>CUSTOM</h4>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <span>
                                         <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -139,13 +135,13 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                         </svg>
                                     </span>
                                     <span>Applications</span>
-                                </a>
+                                </Link>
                             </li>
                             <li>
                                 <h4>LAYOUT</h4>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <span>
                                         <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -160,14 +156,14 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                         </svg>
                                     </span>
                                     <span>Builder</span>
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
                                 <h4>FEATURES</h4>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <span>
                                         <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -182,7 +178,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                         </svg>
                                     </span>
                                     <span>Bootstrap</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                         { visibleMenu && <div onClick={handleVisibleMenu}></div> }
@@ -213,9 +209,9 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 <h3>Search
                                     <small>files, reports, members</small>
                                 </h3>
-                                <a onClick={handleVisibleSearch}>
+                                <Link to="#" onClick={handleVisibleSearch}>
                                     <GrFormClose />
-                                </a>
+                                </Link>
                             </section>
                             <nav>
                                 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -237,21 +233,21 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 <li>
                                     <img src={Doc} alt="Documento" />
                                     <div>
-                                        <a>AirPlus Requirements</a>
+                                        <Link to="#">AirPlus Requirements</Link>
                                         <p>by Grog John</p>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={Pdf} alt="PDF" />
                                     <div>
-                                        <a>TechNav Documentation</a>
+                                        <Link to="#">TechNav Documentation</Link>
                                         <p>by Mary Broun</p>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={Xml} alt="XML" />
                                     <div>
-                                        <a>All Framework Docs</a>
+                                        <Link to="#">All Framework Docs</Link>
                                         <p>by Nick Stone</p>
                                     </div>
                                 </li>
@@ -262,21 +258,21 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 <li>
                                     <img src={Milena} alt="Milena Gibson" />
                                     <div>
-                                        <a>Milena Gibson</a>
+                                        <Link to="#">Milena Gibson</Link>
                                         <p>UI Designer</p>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={Meliodas} alt="Stefan JohnStefan" />
                                     <div>
-                                        <a>Stefan JohnStefan</a>
+                                        <Link to="#">Stefan JohnStefan</Link>
                                         <p>Marketing Manager</p>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={Ban} alt="Nick Bold" />
                                     <div>
-                                        <a>Nick Bold</a>
+                                        <Link to="#">Nick Bold</Link>
                                         <p>Project Coordinator</p>
                                     </div>
                                 </li>
@@ -287,21 +283,21 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 <li>
                                     <img src={File1} alt="79 PSD files generated" />
                                     <div>
-                                        <a>79 PSD files generated</a>
+                                        <Link to="#">79 PSD files generated</Link>
                                         <p>by Grog John</p>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={File2} alt="$2900 worth products sold" />
                                     <div>
-                                        <a>$2900 worth products sold</a>
+                                        <Link to="#">$2900 worth products sold</Link>
                                         <p>Total 234 items</p>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={File3} alt="4 New items submitted" />
                                     <div>
-                                        <a>4 New items submitted</a>
+                                        <Link to="#">4 New items submitted</Link>
                                         <p>Marketing Manager</p>
                                     </div>
                                 </li>
@@ -342,84 +338,84 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     <li>
                                         <img src={Pdf} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Xml} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Doc} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Pdf} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Xml} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Doc} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Pdf} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Xml} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Doc} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Pdf} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Xml} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Doc} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
@@ -431,42 +427,42 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     <li>
                                         <img src={Pdf} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>New report has been received</a>
+                                            <Link to="#">New report has been received</Link>
                                             <p>23 hrs ago</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Xml} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Finance report has been generated</a>
+                                            <Link to="#">Finance report has been generated</Link>
                                             <p>25 hrs ago</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Doc} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>New order has been received</a>
+                                            <Link to="#">New order has been received</Link>
                                             <p>2 hrs ago</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Doc} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>System reboot has been successfully completed</a>
+                                            <Link to="#">System reboot has been successfully completed</Link>
                                             <p>12 hrs ago</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Doc} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Finance report has been generated</a>
+                                            <Link to="#">Finance report has been generated</Link>
                                             <p>25 hrs ago</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Doc} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>New user feedback received</a>
+                                            <Link to="#">New user feedback received</Link>
                                             <p>8 hrs ago</p>
                                         </div>
                                     </li>
@@ -478,14 +474,14 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     <li>
                                         <img src={Pdf} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={Xml} alt="Briviba SaaS"/>
                                         <div>
-                                            <a>Briviba SaaS</a>
+                                            <Link to="#">Briviba SaaS</Link>
                                             <p>PHP, SQLite, Artisan CLIмм</p>
                                         </div>
                                     </li>
@@ -515,7 +511,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         <section>
                             <div>
                                 <h1>Quick Actions</h1>
-                                <a href="#">23 tasks pending</a>
+                                <Link to="#">23 tasks pending</Link>
                             </div>
                             <ul>
                                 <li>
@@ -571,7 +567,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     <li>
                                         <img src={IconProfile} alt="My Profile" />
                                         <div>
-                                            <a>My Profile</a>
+                                            <Link to="#">My Profile</Link>
                                             <p>Account settings and more
                                                 <span>update</span>
                                             </p>
@@ -580,28 +576,28 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     <li>
                                         <img src={IconMessages} alt="My Messages" />
                                         <div>
-                                            <a>My Messages</a>
+                                            <Link to="#">My Messages</Link>
                                             <p>Inbox and tasks</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={IconActivities} alt="My Activities" />
                                         <div>
-                                            <a>My Activities</a>
+                                            <Link to="#">My Activities</Link>
                                             <p>Logs and notifications</p>
                                         </div>
                                     </li>
                                     <li>
                                         <img src={IconTask} alt="My Tasks" />
                                         <div>
-                                            <a>My Tasks</a>
+                                            <Link to="#">My Tasks</Link>
                                             <p>latest tasks and projects</p>
                                         </div>
                                     </li>
                                 </ul>
                                 <nav>
-                                    <a href="Home">Sign Out</a>
-                                    <a href="#">Upgrade Plan</a>
+                                    <Link to="/Home">Sign Out</Link>
+                                    <Link to="#">Upgrade Plan</Link>
                                 </nav>
                             </section>
                             { visibleProfileUser && <div onClick={handleVisibleProfileUser}></div> }
