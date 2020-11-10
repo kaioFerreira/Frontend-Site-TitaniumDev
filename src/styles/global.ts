@@ -17,7 +17,9 @@ export default createGlobalStyle`
         font-family: Poppins, Helvetica, "sans-serif";
         font-size: 16px;
     }
-
+    a {
+        text-decoration: none;
+    }
     h1, h2, h3, h4, h5, strong {
         font-weight: 500;
     }
