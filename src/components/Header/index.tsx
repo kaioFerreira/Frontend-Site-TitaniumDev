@@ -515,7 +515,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         <section>
                             <div>
                                 <h1>Quick Actions</h1>
-                                <a href="">23 tasks pending</a>
+                                <a href="#">23 tasks pending</a>
                             </div>
                             <ul>
                                 <li>
@@ -601,7 +601,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 </ul>
                                 <nav>
                                     <a href="Home">Sign Out</a>
-                                    <a href="">Upgrade Plan</a>
+                                    <a href="#">Upgrade Plan</a>
                                 </nav>
                             </section>
                             { visibleProfileUser && <div onClick={handleVisibleProfileUser}></div> }
