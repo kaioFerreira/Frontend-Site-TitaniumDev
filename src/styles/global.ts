@@ -8,13 +8,13 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
 
-    body {
+    html, body {
+        font-family: Poppins, Helvetica, "sans-serif";
         -webkit-font-smoothing: antialiased;
         background: #EEF0F8;
     }
 
     body, input, button {
-        font-family: Poppins, Helvetica, "sans-serif";
         font-size: 16px;
     }
     a {

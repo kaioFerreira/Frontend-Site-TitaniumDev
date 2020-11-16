@@ -204,23 +204,14 @@ export const MenuSearch = styled.div<MenuSearchProps>`
 
     background: white;
     color: #3F4254;
-    z-index: 1001;
+    z-index: 1101;
 
 
     > svg {
         width: 24px;
     }
     
-    > div {
-        position: fixed;
-        top: 0;
-        right: 0;
-
-        width: 100%;
-        height: 100%;
-        z-index: -1101;
-        background: rgba(0, 0, 0, 0.1);
-    }
+    
     > ul {
         overflow-y: scroll;
         z-index: 1101;
@@ -257,6 +248,7 @@ export const MenuSearch = styled.div<MenuSearchProps>`
                 font-weight: 700;
             }
             a {
+                text-decoration: none;
                 transition: all 0.3s ease;
                 &:hover {
                     background-color: #002ccd6b;
@@ -304,6 +296,7 @@ export const MenuSearch = styled.div<MenuSearchProps>`
                 div {
                     margin-left: 10px;
                     a {
+                        text-decoration: none;
                         &:hover {
                             color: #0050cd;
                         }
@@ -326,12 +319,21 @@ export const MenuSearch = styled.div<MenuSearchProps>`
         }
     }
 
+    > div {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: -1000;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.1);
+    }
+
     svg {
         width: 24px;
         margin-right: 15px;
     }
 `;
-
 
 interface QuickActionsProps {
     isVisible: Boolean;
@@ -434,7 +436,6 @@ export const QuickActions = styled.div<QuickActionsProps>`
 
         width: 100%;
         height: 100%;
-        z-index: -1101;
         background: rgba(0, 0, 0, 0.1);
     }
 `;
@@ -670,7 +671,6 @@ export const ProfileUser = styled.div<ProfileUserProps>`
         cursor: default;
         width: 100%;
         height: 100%;
-        z-index: -1101;
         background: rgba(0, 0, 0, 0.1);
     }
     
@@ -684,7 +684,6 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
     > section {
         z-index: 1101;
         transition: ${({ isVisible }) => isVisible ? "all 0.3s ease" : "all 0s ease" };
-        display: block;
         background-color: #FFFFFF;
         position: absolute;
         margin-top: 80px;
@@ -699,7 +698,7 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
         border-radius: 10px;
 
         width: 400px;
-        display: flex;
+        display: ${({ isVisible }) => isVisible ? "flex" : "none" };
         flex-direction: column;
 
         > div {
@@ -799,7 +798,6 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
 
         width: 100%;
         height: 100%;
-        z-index: -1101;
         background: rgba(0, 0, 0, 0.1);
     }
 `;
@@ -920,7 +918,348 @@ interface LogsNotificationProps {
     isVisible: Boolean;
 }
 
+interface QuickPanelProps {
+    isVisible: Boolean;
+    PAL: Boolean;
+    PN: Boolean;
+    PS: Boolean;
+}
+
+export const QuickPanel = styled.div<QuickPanelProps>`
+    transition: left 0.3s ease, right 0.3s ease, bottom 0.3s ease, top 0.3s ease;
+
+    box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
+    
+    position: fixed;
+    top: 0;
+    right: ${({ isVisible }) => isVisible ? "0px" : "-395px" };
+    bottom: 0;
+    height: 100%;
+
+    background: white;
+    color: #3F4254;
+    z-index: 1101;
+    
+    .btn-qp-al {
+        color: ${({ PAL }) => PAL ? "#6993FF" : "#7E8299" };
+        border-bottom: ${({ PAL }) => PAL ? "#6993FF 3px solid" : "#6993ff00 3px solid"};
+    }
+
+    .btn-qp-n {
+        color: ${({ PN }) => PN ? "#6993FF" : "#7E8299" };
+        border-bottom: ${({ PN }) => PN ? "#6993FF 3px solid" : "#6993ff00 3px solid"};
+    }
+
+    .btn-qp-s {
+        color: ${({ PS }) => PS ? "#6993FF" : "#7E8299" };
+        border-bottom: ${({ PS }) => PS ? "#6993FF 3px solid" : "#6993ff00 3px solid"};
+    }
+
+    > section {
+        
+        z-index: 1101;
+        box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
+        background: #ffffff;
+        width: 395px;
+        height: 100%;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+
+        > div {
+            border-bottom: 3px solid #E4E6EF;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            
+            > div {
+                margin-top: 10px;
+                > button {
+                    padding: 0.85rem 0;
+                    font-size: 15px;
+                    font-weight: 500;
+                    margin: 0 1rem -3px 1rem;
+                }
+            }
+
+            > button {
+                margin-top: 20px;
+                color: #7E8299;
+                background-color: #F3F6F9;
+                border-color: #F3F6F9;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 24px;
+                width: 24px;
+                border-radius: 0.42rem;
+                user-select: none;
+                transition: all 0.15s ease;
+                &:hover {
+                    background-color: #6993FF;
+                }
+
+                svg {
+                    margin: 0;
+                }
+            }
+
+        }
+    }
+
+    > div {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: -1000;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.1);
+    }
+`;
+
+interface AuditLogsProps {
+    isVisible: Boolean;
+}
+
+export const AuditLogsSystem = styled.section<AuditLogsProps>`
+    > ul {
+        > span {
+            color: #3F4254;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+        align-items: center;
+        justify-content: flex-start;
+        list-style: none;
+        flex-wrap: wrap;
+
+        li {
+
+            > span {
+                background-color: #F3F6F9;
+                border-color: #F3F6F9;
+                cursor: pointer;
+                transition: all 0.15s ease;
+                color: #7E8299;
+                font-weight: 500;
+                padding: 0.55rem 0.75rem;
+                font-size: 0.725rem;
+                border-radius: 0.42rem;
+            }
+
+            margin-top: 15px;
+            display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            
+            .c-default {
+                cursor: default;
+                width: 50px;
+                height: 50px;
+                margin-left: 0;
+            }
+            
+            div + span {
+                padding: 5px 10px;
+                &:hover {
+                    background-color: #7e829945;
+                }
+            }
+            span {
+                margin-left: auto;
+                    
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            div {
+                width: 166px;
+                display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+                flex-direction: column;
+                margin-left: 10px;
+                a {
+                    &:hover {
+                        color: #0050cd;
+                    }
+                    font-size: 0.8rem;
+                    color: #3F4254;
+                    cursor: pointer;
+                    font-weight: 700;
+                    margin-bottom: 0.25rem;
+                    text-decoration: none;
+                }
+                p {
+                    font-size: 14px;
+                    color: #B5B5C3;
+                }
+        }
+    }
+`;
+
+export const AuditLogsNotifications = styled.section<AuditLogsProps>`
+
+    .bc-1 {
+        background-color: #FFF4DE;
+        span {
+           
+        }
+        path {
+            fill: #FFA800;
+        }
+        path + rect {
+            fill: #FFA800;
+        }
+        div + span {
+            color: #FFA800;
+            font-weight: 700;
+        }
+    }
+    .bc-2 {
+        background-color: #C9F7F5;
+        span {
+           
+        }
+        path {
+            fill: #1BC5BD;
+        }
+        path + rect {
+            fill: #1BC5BD;
+        }
+        div + span {
+            color: #1BC5BD;
+            font-weight: 700;
+        }
+    }
+    .bc-3 {
+        background-color: #FFE2E5;
+        span {
+           
+        }
+        path {
+            fill: #F64E60;
+        }
+        path + rect {
+            fill: #F64E60;
+        }
+        div + span {
+            color: #F64E60;
+            font-weight: 700;
+        }
+    }
+    .bc-4 {
+        background-color: #EEE5FF;
+        span {
+           
+        }
+        path {
+            fill: #8950FC;
+        }
+        path + rect {
+            fill: #8950FC;
+        }
+        div + span {
+            color: #8950FC;
+            font-weight: 700;
+        }
+    }
+    > ul {
+        > span {
+            margin-top: 40px;
+            color: #3F4254;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+        align-items: center;
+        justify-content: flex-start;
+        list-style: none;
+        flex-wrap: wrap;
+
+        li {
+
+            > span {
+                
+                width: auto;
+                height: auto;
+                cursor: pointer;
+                transition: all 0.15s ease;
+                color: #7E8299;
+                font-weight: 500;
+                padding: 0.55rem 0.75rem;
+                font-size: 0.725rem;
+                border-radius: 0.42rem;
+            }
+
+            margin-top: 15px;
+            display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            
+            padding: 10px;
+            border-radius: 4px;
+            .c-default {
+                cursor: default;
+                margin-left: 0;
+            }
+            
+            span {
+                margin-left: auto;
+                    
+                svg {
+                    cursor: default;
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+
+            div {
+                width: 166px;
+                display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+                flex-direction: column;
+                margin-left: 10px;
+                a {
+                    &:hover {
+                        color: #0050cd;
+                    }
+                    font-size: 14px;
+                    color: #3F4254;
+                    cursor: pointer;
+                    font-weight: 400;
+                    margin-bottom: 0.25rem;
+                    text-decoration: none;
+                }
+                p {
+                    font-size: 14px;
+                    color: #B5B5C3;
+                }
+        }
+    }
+`;
+
+export const AuditLogs = styled.section<AuditLogsProps>`
+    display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #FFFF;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 15px 30px;
+    padding-top: 282px;
+    
+`;
+
 export const LogsNotification = styled.section<LogsNotificationProps>`
+
     display: ${({ isVisible }) => isVisible ? "flex" : "none" };
     justify-content: center;
     align-items: center;
@@ -971,3 +1310,219 @@ export const LogsNotification = styled.section<LogsNotificationProps>`
         }
     }
 `;
+
+interface QPNotificationsProps {
+    isVisible: Boolean;
+}
+
+export const QPNotifications = styled.section<QPNotificationsProps>`
+    display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #FFFF;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 15px 40px;
+
+    > ul {
+        display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+        align-items: center;
+        justify-content: flex-start;
+        list-style: none;
+        flex-wrap: wrap;
+
+        li {
+
+            margin-top: 20px;
+            display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            
+            span {
+                    
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            div {
+                
+                display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+                flex-direction: column;
+                margin-left: 20px;
+                a {
+                    &:hover {
+                        color: #0050cd;
+                    }
+                    font-size: 0.8rem;
+                    color: #3F4254;
+                    cursor: pointer;
+                    font-weight: 700;
+                    margin-bottom: 0.25rem;
+                    text-decoration: none;
+                }
+                p {
+                    font-size: 14px;
+                    color: #B5B5C3;
+                }
+        }
+    }
+    
+`;
+
+interface QPSettingsProps {
+    isVisible: Boolean;
+    qpsNotification: Boolean;
+    qpsTracking: Boolean;
+    qpsPortal: Boolean;
+    qpsReports: Boolean;
+    qpsExport: Boolean;
+    qpsCollection: Boolean;
+    qpsSingup: Boolean;
+    qpsFeedback: Boolean;
+    qpsCPortal: Boolean;
+}
+
+export const QPSettings = styled.section<QPSettingsProps>`
+    display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #FFFF;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 15px 40px;
+    justify-content: space-around;
+    height: 100vh;
+
+    .qps-active-cportal {
+        background-color: #6993FF;
+        div {
+            left: ${({ qpsCPortal }) => qpsCPortal ? "15px" : "0"};
+            background-color: ${({ qpsCPortal }) => qpsCPortal ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    .qps-active-feedback {
+        background-color: #6993FF;
+        div {
+            left: ${({ qpsFeedback }) => qpsFeedback ? "15px" : "0"};
+            background-color: ${({ qpsFeedback }) => qpsFeedback ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    .qps-active-singup {
+        background-color: #6993FF;
+        div {
+            left: ${({ qpsSingup }) => qpsSingup ? "15px" : "0"};
+            background-color: ${({ qpsSingup }) => qpsSingup ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    .qps-active-collection {
+        background-color: #F64E60;
+        div {
+            left: ${({ qpsCollection }) => qpsCollection ? "15px" : "0"};
+            background-color: ${({ qpsCollection }) => qpsCollection ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    .qps-active-export {
+        background-color: #F64E60;
+        div {
+            left: ${({ qpsExport }) => qpsExport ? "15px" : "0"};
+            background-color: ${({ qpsExport }) => qpsExport ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    .qps-active-reports {
+        background-color: #F64E60;
+        div {
+            left: ${({ qpsReports }) => qpsReports ? "15px" : "0"};
+            background-color: ${({ qpsReports }) => qpsReports ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    .qps-active-notification {
+        div {
+            left: ${({ qpsNotification }) => qpsNotification ? "15px" : "0"};
+            background-color: ${({ qpsNotification }) => qpsNotification ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    .qps-active-tracking {
+        div {
+            left: ${({ qpsTracking }) => qpsTracking ? "15px" : "0"};
+            background-color: ${({ qpsTracking }) => qpsTracking ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    .qps-active-portal {
+        div {
+            left: ${({ qpsPortal }) => qpsPortal ? "15px" : "0"};
+            background-color: ${({ qpsPortal }) => qpsPortal ? "#FFFF" : "#ffffffa6"};
+        }
+    }
+
+    > div {
+        display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        flex-direction: column;
+        h5 {
+            font-size: 17px;
+            font-weight: 500;
+        }
+        section {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            div{
+                h1 {
+                   
+                    font-weight: 400;
+                }
+                margin-top: 15px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                
+                div {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    
+
+                    margin: 2px 0;
+                    height: 24px;
+                    width: 40px;
+                    border-radius: 12px;
+                    background-color: #1BC5BD;
+                    padding: 2px;
+
+                    div {
+                        transition: all 0.3s ease;
+                        position: relative;
+                        margin: 2px 0;
+                        height: 20px;
+                        width: 20px;
+                        border-radius: 12px;
+                        background-color: #F1F1F1;
+                    }
+                    
+                }
+                    
+            }
+        }
+        
+    }
+    
+`;
+
+
+
