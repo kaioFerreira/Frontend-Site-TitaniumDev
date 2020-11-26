@@ -6,6 +6,16 @@ export default createGlobalStyle`
         padding: 0;
         outline: 0;
         box-sizing: border-box;
+
+        @media (max-width: 900px) {
+            .disable-mbl {
+                display: none;
+            }
+        }
+    }
+
+    html {
+        font-size: 62.5%;
     }
 
     html, body {

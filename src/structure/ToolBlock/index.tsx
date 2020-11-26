@@ -20,8 +20,8 @@ type ToolsProps = HtmlHTMLAttributes<HTMLElement>;
         }
 
         return (
-        <Container>
-            <Block isVisible={visibleTools} inVisible={!visibleTools}>
+        <Container className="disable-mbl">
+            <Block  isVisible={visibleTools} inVisible={!visibleTools}>
                 <ul>
                     <li>
                         <Link to="#">

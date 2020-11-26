@@ -1,5 +1,155 @@
 import styled from 'styled-components';
 
+
+export const SubHeader = styled.div<MobMenuUserProps>`
+    transition: all 0.3s ease;
+    height: 54px;   
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 900px) {
+        transform: ${({ isVisible }) => isVisible ? "translate3d(0,0px,0)" : "translate3d(0,-50px,0)" };
+    }
+`;
+
+interface MobMenuUserProps {
+    isVisible: Boolean;
+}
+
+export const MobSubHeader = styled.div<MobMenuUserProps>`
+
+    transition: all 0.3s ease;
+    svg {
+        margin-right: 20px;
+    }
+
+    button {
+        border: none;
+        background: none;
+    }
+
+    height: 54px;   
+    width: 90%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+    justify-content: flex-end;
+    transform: ${({ isVisible }) => isVisible ? "translate3d(0,0px,0)" : "translate3d(0,-50px,0)" };
+    opacity: ${({ isVisible }) => isVisible ? 1 : 0 };
+    z-index: -100;
+    @media (max-width: 900px) {
+        display: flex;
+        
+    }
+`;
+
+export const SubHeaderDiv = styled.div`
+
+    height: 100%;   
+    width: 90%;
+    box-sizing: border-box;
+    
+
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > div {
+        color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        svg {
+            height: 23px;
+            width: 23px;  
+            cursor: default;  
+            margin-right: 5px;
+        }
+        span {
+            font-size: 14px;
+            color: #ffffffad;
+        }
+        h1 {
+            font-weight: 700;
+            margin: 0 8px 0 5px;
+            font-size: 22px;
+        }
+    }
+    > ul {
+        display: flex;
+        align-items: center;
+        li {
+            transition: all 0.3ms ease;
+            cursor: pointer;
+            border-radius: 8px;
+            &:hover {
+                background-color:  #f3f6f947;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin-right: 10px;
+            list-style: none;
+            svg {
+                width: 18px;
+                height: 18px;
+                color: #FFFFFF;
+            }
+        }
+        > div {
+            color: #FFFFFF;
+
+            span {
+                font-weight: 400;
+                font-size: 13px;
+            }
+            strong {
+                font-weight: 700;
+            }
+        }
+        button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            margin-right: 10px;
+            padding: 10px;
+            background-color: #f3f6f947;
+            margin-left: 14px;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+    @media (max-width: 900px) {
+        ul {
+            li {
+                
+                display: none;
+                
+            }
+            > div {
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+`;
+
 export const Container = styled.div`
 
     svg {
@@ -9,11 +159,10 @@ export const Container = styled.div`
     top: 0;
     right: 0;
     height: 80px;
-    width: 100%;
+    width: 100vw;
+    flex-wrap: wrap;
     box-sizing: border-box;
-
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    
     display: flex;
     justify-content: center;
 
@@ -29,6 +178,29 @@ export const RigthNav = styled.div`
     button {
         border: none;
         background: none;
+    }
+
+    @media (max-width: 900px) {
+        justify-content: flex-end;
+        width: 40%;
+        > button {
+           display: none;
+        }
+    }
+`;
+
+export const MobMenuRigth = styled.div`
+    display: none;
+    align-items: center;
+    > svg {
+        display: none;
+    }
+
+    @media (max-width: 900px) {
+        display: flex;
+        > svg {
+           display: block;
+        }
     }
 `;
 
@@ -54,7 +226,7 @@ export const LeftNav = styled.div`
     }
 
     Input {
-        background-color: #F3F6F9 ;
+        background-color: #F3F6F9;
         box-sizing: border-box;
         border: 0;
         color: #3F4254;    
@@ -70,9 +242,8 @@ export const Nav = styled.nav`
 
     align-items: center;
 
-    padding: 0 25px;
     height: 100%;
-    width: 80%;
+    width: 90%;
 `;
 
 interface MenuLeftProps {
@@ -84,7 +255,7 @@ interface MenuSearchProps {
 }
 
 export const MenuLeft = styled.div<MenuLeftProps>`
-    transition: left 0.3s ease, right 0.3s ease, bottom 0.3s ease, top 0.3s ease;
+    transition: all 0.3s ease;
 
     box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
     
@@ -132,8 +303,6 @@ export const MenuLeft = styled.div<MenuLeftProps>`
                 background-color: #F3F6F9;
             }
             
-            
-
             &:hover svg g path {
                 fill: #9baeff;
             }
@@ -159,13 +328,12 @@ export const MenuLeft = styled.div<MenuLeftProps>`
             span {
                 font-weight: 400;
                 font-size: 15px;
-                
             }
         }
 
         li {
             transition: all 0.3s ease;
-            alight-items: center;
+            align-items: center;
             position: relative;
             margin: 0;
             flex-direction: column;
@@ -438,6 +606,39 @@ export const QuickActions = styled.div<QuickActionsProps>`
         height: 100%;
         background: rgba(0, 0, 0, 0.1);
     }
+
+    @media (max-width: 900px) {
+        > section {
+            margin-top: 117px;
+            width: 270px;
+            margin-left: -50%;
+
+            div {
+                h1 {
+                    font-size: 20px;
+                }
+                a {
+                    font-size: 9px;
+                }
+            }
+
+            ul {
+                li {
+                    img {
+                        height: 35px;
+                        width: 35px;
+                    }
+                    h1 {
+                        font-size: 12px;
+                    }
+                    p {
+                        font-size: 9px;
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
 `;
 
 export const User = styled.div`
@@ -497,7 +698,7 @@ export const Profile = styled.div<ProfileUserProps>`
         justify-content: center;
         align-items: center;
         height: 24px;
-        font-size: 0.9rem;
+        font-size: 12px;
         color: #1BC5BD;
         background-color: #C9F7F5;
         padding: 0.9rem 0.75rem;
@@ -536,7 +737,7 @@ export const ProfileUser = styled.div<ProfileUserProps>`
         flex-direction: column;
 
         > div {
-            display: display: ${({ isVisible }) => isVisible ? "flex" : "none" };;
+            display: ${({ isVisible }) => isVisible ? "flex" : "none" };
             justify-content: space-between;
             align-items: center;
             
@@ -641,7 +842,7 @@ export const ProfileUser = styled.div<ProfileUserProps>`
                 font-weight: 700;
                 padding: 0.65rem 1rem;
                 user-select: none;
-                font-size: 1rem;
+                font-size: 13px;
                 text-decoration: none;
                 border-radius: 0.42rem;
 
@@ -673,6 +874,32 @@ export const ProfileUser = styled.div<ProfileUserProps>`
         height: 100%;
         background: rgba(0, 0, 0, 0.1);
     }
+
+    @media (max-width: 900px) {
+        > section {
+            margin-top: 53px;
+            width: 300px;
+            margin-left: -57%;
+            > ul {
+                li {
+                    img {
+                        height: 25px;
+                        width: 25px;
+                    }
+                    div {
+                        p {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+            > div {
+                h1 {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
     
 `;
 
@@ -698,7 +925,7 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
         border-radius: 10px;
 
         width: 400px;
-        display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+        display: flex;
         flex-direction: column;
 
         > div {
@@ -800,6 +1027,48 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
         height: 100%;
         background: rgba(0, 0, 0, 0.1);
     }
+
+    @media (max-width: 900px) {
+        > section {
+            margin-top: 117px;
+            width: 270px;
+            margin-left: -50%;
+
+            div {
+                h1 {
+                    font-size: 15px;
+                    span {
+                        padding: 6px;
+                        font-size: 8px;
+                    }
+                }
+
+                div {
+                    button {
+                        font-size: 10px;
+                    }
+                }
+            }
+
+            > ul {
+                li {
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
+                    div {
+                        a {
+                            font-size: 12px;
+                        }
+                        p {
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
 `;
 
 interface AlertNotificationProps {
@@ -854,6 +1123,7 @@ export const AlertNotification = styled.section<AlertNotificationProps>`
                     font-size: 14px;
                     color: #B5B5C3;
                 }
+            }
         }
     }
 `;
@@ -910,6 +1180,7 @@ export const EventsNotification = styled.section<EventsNotificationProps>`
                     font-size: 14px;
                     color: #B5B5C3;
                 }
+            }
         }
     }
 `;
@@ -985,7 +1256,6 @@ export const QuickPanel = styled.div<QuickPanelProps>`
             }
 
             > button {
-                margin-top: 20px;
                 color: #7E8299;
                 background-color: #F3F6F9;
                 border-color: #F3F6F9;
@@ -1019,6 +1289,8 @@ export const QuickPanel = styled.div<QuickPanelProps>`
         height: 100%;
         background: rgba(0, 0, 0, 0.1);
     }
+
+    
 `;
 
 interface AuditLogsProps {
@@ -1048,7 +1320,7 @@ export const AuditLogsSystem = styled.section<AuditLogsProps>`
                 color: #7E8299;
                 font-weight: 500;
                 padding: 0.55rem 0.75rem;
-                font-size: 0.725rem;
+                font-size: 12px;
                 border-radius: 0.42rem;
             }
 
@@ -1089,7 +1361,7 @@ export const AuditLogsSystem = styled.section<AuditLogsProps>`
                     &:hover {
                         color: #0050cd;
                     }
-                    font-size: 0.8rem;
+                    font-size: 12px;
                     color: #3F4254;
                     cursor: pointer;
                     font-weight: 700;
@@ -1100,8 +1372,25 @@ export const AuditLogsSystem = styled.section<AuditLogsProps>`
                     font-size: 14px;
                     color: #B5B5C3;
                 }
+            }   
         }
     }
+    @media (max-width: 900px) {
+        > ul {
+            li {
+                div {
+                    a {
+                        font-size: 12px;
+                    }
+
+                    span {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+    
 `;
 
 export const AuditLogsNotifications = styled.section<AuditLogsProps>`
@@ -1194,7 +1483,7 @@ export const AuditLogsNotifications = styled.section<AuditLogsProps>`
                 color: #7E8299;
                 font-weight: 500;
                 padding: 0.55rem 0.75rem;
-                font-size: 0.725rem;
+                font-size: 14px;
                 border-radius: 0.42rem;
             }
 
@@ -1241,6 +1530,7 @@ export const AuditLogsNotifications = styled.section<AuditLogsProps>`
                     font-size: 14px;
                     color: #B5B5C3;
                 }
+            }
         }
     }
 `;
@@ -1254,8 +1544,12 @@ export const AuditLogs = styled.section<AuditLogsProps>`
     flex-direction: column;
     overflow-y: scroll;
     padding: 15px 30px;
-    padding-top: 282px;
+    padding-top: 230px;
     
+    @media (max-width: 900px) {
+        padding-top: 60px;
+        
+    }
 `;
 
 export const LogsNotification = styled.section<LogsNotificationProps>`
@@ -1307,6 +1601,7 @@ export const LogsNotification = styled.section<LogsNotificationProps>`
                     font-size: 14px;
                     color: #B5B5C3;
                 }
+            }
         }
     }
 `;
@@ -1331,7 +1626,7 @@ export const QPNotifications = styled.section<QPNotificationsProps>`
         justify-content: flex-start;
         list-style: none;
         flex-wrap: wrap;
-
+        padding-top: 204px;
         li {
 
             margin-top: 20px;
@@ -1357,7 +1652,7 @@ export const QPNotifications = styled.section<QPNotificationsProps>`
                     &:hover {
                         color: #0050cd;
                     }
-                    font-size: 0.8rem;
+                    font-size: 12px;
                     color: #3F4254;
                     cursor: pointer;
                     font-weight: 700;
@@ -1368,8 +1663,16 @@ export const QPNotifications = styled.section<QPNotificationsProps>`
                     font-size: 14px;
                     color: #B5B5C3;
                 }
+            }
         }
     }
+
+   @media (max-width: 900px) {
+       > ul {
+            margin-top: 30px;
+            padding-top: 0;
+       }
+   }
     
 `;
 

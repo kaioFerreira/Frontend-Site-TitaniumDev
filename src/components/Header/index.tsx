@@ -4,6 +4,9 @@ GrFormClose
 } from 'react-icons/gr';
 
 import { Link } from 'react-router-dom';
+import { TiDownload } from 'react-icons/ti';
+import { RiPagesLine } from 'react-icons/ri';
+import { BsDot, BsCollectionFill, BsTextRight } from 'react-icons/bs';
 
 import Button from '../Button';
 import ToolBlock from '../../structure/ToolBlock';
@@ -27,7 +30,11 @@ AuditLogsSystem,
 AuditLogsNotifications,
 QPNotifications,
 QPSettings,
-RigthNav
+RigthNav,
+SubHeader,
+SubHeaderDiv,
+MobMenuRigth,
+MobSubHeader
 } from './styles';
 
 import Logo from '../../assets/logo.png';
@@ -68,6 +75,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         const [visibleEventsNotifications, setVisibleEventsNotifications] = useState(false);
         const [visibleLogsNotifications, setVisibleLogsNotifications] = useState(false);
         const [visibleQuickPanel, setVisibleQuickPanel] = useState(false);
+        const [visibleMobUserMenu, setVisibleMobUserMenu] = useState(false);
 
 
         const [visibleAuditLogs, setVisibleAuditLogs] = useState(true);
@@ -86,6 +94,11 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         const [activeQPSSingup, setActiveQPSSingup] = useState(false);
         const [activeQPSFeedback, setActiveQPSFeedback] = useState(false);
         const [activeQPSCPortal, setActiveQPSCPortal] = useState(false);
+
+        
+        function handleVisibleMobUserMenu(){
+            setVisibleMobUserMenu(!visibleMobUserMenu);
+        }
 
         function handleQPSCPortal(){
             setActiveQPSCPortal(!activeQPSCPortal);
@@ -272,7 +285,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         { visibleMenu && <div onClick={handleVisibleMenu}></div> }
                     </MenuLeft>
 
-                    <button onClick={handleVisibleMenu}>
+                    <button className="disable-mbl" onClick={handleVisibleMenu}>
                         <svg width="30px" viewBox="0 0 24 24" version="1.1">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <rect x="0" y="0" width="30" height="30"></rect>
@@ -285,12 +298,13 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         </svg>
                     </button>
                     <img src={Logo} alt="Logo" />
-                    <Button>Dashboard</Button>
+                    <Button className="disable-mbl">Dashboard</Button>
 
-                    <ToolBlock />
+                    <ToolBlock></ToolBlock>
 
                 </LeftNav>
                 <RigthNav>
+
                     <MenuSearch isVisible={visibleSearch}>
                         <ul>
                             <section>
@@ -658,7 +672,6 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
 
                             <AuditLogs isVisible={visibleAuditLogs}>
                                 <AuditLogsSystem isVisible={visibleAuditLogs}>
-
                                     <ul>
                                         <span>System Messages</span>
                                         <li>
@@ -1052,10 +1065,10 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         </svg>
                     </button>
 
-                    <User onClick={handleVisibleProfileUser}>
-                        <span>Hi,</span>
-                        <span>Kaio</span>
-                        <button>K</button>
+                    <User  onClick={handleVisibleProfileUser}>
+                        <span className="disable-mbl">Hi,</span>
+                        <span className="disable-mbl">Kaio</span>
+                        <button className="disable-mbl">K</button>
 
                         <ProfileUser isVisible={visibleProfileUser}>
                             <section>
@@ -1104,8 +1117,125 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                             { visibleProfileUser && <div onClick={handleVisibleProfileUser}></div> }
                         </ProfileUser>
                     </User>
+                
+                    <MobMenuRigth>
+                        <BsTextRight onClick={handleVisibleMenu} size={30} color="#ffff"></BsTextRight>
+                        <button onClick={handleVisibleMobUserMenu}>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g id="Stockholm-icons-/-General-/-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                                    <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" id="Mask" fill="#ffff" fill-rule="nonzero" opacity="0.3"></path>
+                                    <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" id="Mask-Copy" fill="#ffff" fill-rule="nonzero"></path>
+                                </g>
+                            </svg>
+                        </button>
+
+                    </MobMenuRigth>
                 </RigthNav>
             </Nav>
+            <MobSubHeader isVisible={visibleMobUserMenu}>
+                <button onClick={handleVisibleSearch}>
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"></rect>
+                            <path
+                                d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
+                                fill="#FFFFFF" fill-rule="nonzero" opacity="0.3"></path>
+                            <path
+                                d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z"
+                                fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                    </svg>
+                </button>
+
+                <button onClick={handleVisibleUserNotifications}>
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g id="Stockholm-icons-/-Code-/-Compiling" stroke="none" stroke-width="1" fill="none"
+                            fill-rule="evenodd">
+                            <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+                            <path
+                                d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
+                                id="Combined-Shape" fill="#FFFF" opacity="0.3"></path>
+                            <path
+                                d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
+                                id="Combined-Shape" fill="#FFFF"></path>
+                        </g>
+                    </svg>
+                </button>
+
+                <button onClick={handleVisibleQuick}>
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"></rect>
+                            <rect fill="#FFFFFF" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5"></rect>
+                            <rect fill="#FFFFFF" x="8" y="9" width="3" height="11" rx="1.5"></rect>
+                            <rect fill="#FFFFFF" x="18" y="11" width="3" height="9" rx="1.5"></rect>
+                            <rect fill="#FFFFFF" x="3" y="13" width="3" height="7" rx="1.5"></rect>
+                        </g>
+                    </svg>
+                </button>
+
+                <button onClick={handleVisibleQuickPanel}>
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g id="Stockholm-icons-/-Layout-/-Layout-4-blocks" stroke="none" stroke-width="1"
+                            fill="none" fill-rule="evenodd">
+                            <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+                            <rect id="Rectangle-7" fill="#FFFFFF" x="4" y="4" width="7" height="7" rx="1.5"></rect>
+                            <path
+                                d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                id="Combined-Shape" fill="#FFFFFF" opacity="0.3"></path>
+                        </g>
+                    </svg>
+                </button>
+
+                <User onClick={handleVisibleProfileUser}>
+                    <span>Hi,</span>
+                    <span>Kaio</span>
+                    <button>K</button>
+                </User>
+            
+            </MobSubHeader>
+            <SubHeader isVisible={visibleMobUserMenu}>
+                <SubHeaderDiv >
+                    <div>
+                        <h1>Dashboard</h1>
+                        <BsDot color="#ffffffad"/>
+                        <span>Settings</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <RiPagesLine/>
+                        </li>
+                        <li>
+                            <TiDownload/>
+                        </li>
+                        <li>
+                            <BsCollectionFill/>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#FFFF"></path>
+                                </g>
+                            </svg>
+                        </li>
+                        <div>
+                            <span> Today: <strong>Nov 23</strong></span>
+                        </div>
+                        <button>
+                            <svg viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#FFFF"></path>
+                                </g>
+                            </svg>
+                        </button>
+
+                        
+                    </ul>
+                </SubHeaderDiv>
+            </SubHeader>
         </Container>
         )
         };
