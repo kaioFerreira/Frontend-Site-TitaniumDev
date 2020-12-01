@@ -13,7 +13,6 @@ import {
     BsFillXDiamondFill 
 } from 'react-icons/bs';
 
-import Button from '../Button';
 import ToolBlock from '../../structure/ToolBlock';
 import {
 Container,
