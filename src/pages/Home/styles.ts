@@ -20,15 +20,15 @@ export const Content = styled.div`
     max-width: 900px;
 
     h1 {
-        font-size: 2rem;
+        font-size: 22px;
         margin-bottom: 10px;
-        font-weight: 500;
+        font-weight: 700;
         color: #3F4254;
     }
     p {
         color: #B5B5C3;
         font-weight: 500;
-        margin-bottom: 100px;
+        margin-bottom: 80px;
     }
 
     input {
@@ -38,13 +38,14 @@ export const Content = styled.div`
         transition: all 0.15s ease;
         padding: 1.25rem;
         width: 300px;
-        font-size: 1rem;
+        font-size: 16px;
         font-weight: 400;
         background-clip: padding-box;
         border: none;
         margin-bottom: 20px;
         border-radius: 0.42rem;
         overflow: visible;
+        
     }
 
     nav {
@@ -59,17 +60,17 @@ export const Content = styled.div`
             color: #B5B5C3;
             background-color: trasnparent;
             transition: all 0.15s ease;
-            font-weight: 700;
+            font-weight: 400;
             padding: 0.65rem 1rem;
             user-select: none;
-            font-size: 15px;
+            font-size: 13px;
             text-decoration: none;
             border-radius: 0.42rem;
 
             & + a {
-                padding: 15px 25px;
-                font-weight: 700;
-                font-size: 15px;
+                padding: 10px 15px;
+                font-weight: 400;
+                font-size: 13px;
                 color: #FFFFFF;
                 background-color: #6993FF;
                 border-color: #6993FF;

@@ -6,7 +6,12 @@ GrFormClose
 import { Link } from 'react-router-dom';
 import { TiDownload } from 'react-icons/ti';
 import { RiPagesLine } from 'react-icons/ri';
-import { BsDot, BsCollectionFill, BsTextRight } from 'react-icons/bs';
+import { 
+    BsDot, 
+    BsCollectionFill, 
+    BsTextRight, 
+    BsFillXDiamondFill 
+} from 'react-icons/bs';
 
 import Button from '../Button';
 import ToolBlock from '../../structure/ToolBlock';
@@ -34,7 +39,8 @@ RigthNav,
 SubHeader,
 SubHeaderDiv,
 MobMenuRigth,
-MobSubHeader
+MobSubHeader,
+SubHeaderMob
 } from './styles';
 
 import Logo from '../../assets/logo.png';
@@ -298,7 +304,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         </svg>
                     </button>
                     <img src={Logo} alt="Logo" />
-                    <Button className="disable-mbl">Dashboard</Button>
+                    
 
                     <ToolBlock></ToolBlock>
 
@@ -420,6 +426,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     fill="#FFFFFF" fill-rule="nonzero"></path>
                             </g>
                         </svg>
+                        <span>Quick search</span>
                     </button>
 
                     <UserNotifications isVisible={visibleUserNotifications}>
@@ -607,6 +614,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     id="Combined-Shape" fill="#FFFF"></path>
                             </g>
                         </svg>
+                        <span>User Notifications</span>
                     </button>
 
                     <QuickActions isVisible={visibleQuick}>
@@ -651,6 +659,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 <rect fill="#FFFFFF" x="3" y="13" width="3" height="7" rx="1.5"></rect>
                             </g>
                         </svg>
+                        <span>Quick Actions</span>
                     </button>
 
                     <QuickPanel isVisible={visibleQuickPanel} PAL={visibleAuditLogs} PN={visibleQPNotifications} PS={visibleQPSettings}>
@@ -1063,6 +1072,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     id="Combined-Shape" fill="#FFFFFF" opacity="0.3"></path>
                             </g>
                         </svg>
+                        <span>Quick Panel</span>
                     </button>
 
                     <User  onClick={handleVisibleProfileUser}>
@@ -1118,16 +1128,10 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         </ProfileUser>
                     </User>
                 
-                    <MobMenuRigth>
+                    <MobMenuRigth isVisible={visibleMobUserMenu}>
                         <BsTextRight onClick={handleVisibleMenu} size={30} color="#ffff"></BsTextRight>
                         <button onClick={handleVisibleMobUserMenu}>
-                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g id="Stockholm-icons-/-General-/-User" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
-                                    <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" id="Mask" fill="#ffff" fill-rule="nonzero" opacity="0.3"></path>
-                                    <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" id="Mask-Copy" fill="#ffff" fill-rule="nonzero"></path>
-                                </g>
-                            </svg>
+                            <BsFillXDiamondFill color="#FFFF" size={30}/>
                         </button>
 
                     </MobMenuRigth>
@@ -1232,10 +1236,43 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                             </svg>
                         </button>
 
-                        
                     </ul>
                 </SubHeaderDiv>
+                <SubHeaderMob>
+                    <ul>
+                        <li>
+                            <RiPagesLine/>
+                        </li>
+                        <li>
+                            <TiDownload/>
+                        </li>
+                        <li>
+                            <BsCollectionFill/>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#FFFF"></path>
+                                </g>
+                            </svg>
+                        </li>
+                        <div>
+                            <span> Today: <strong>Nov 23</strong></span>
+                        </div>
+                        <button>
+                            <svg viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#FFFF"></path>
+                                </g>
+                            </svg>
+                        </button>
+
+                    </ul>
+                </SubHeaderMob>
             </SubHeader>
+            
         </Container>
         )
         };

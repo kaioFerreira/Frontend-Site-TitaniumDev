@@ -58,11 +58,11 @@ export const Block = styled.div<ToolProps>`
             }
 
             &:hover > a section svg g path {
-                fill: #6993FF;
+                fill: #6993ff73;
             }
 
             &:hover > a section svg g rect + rect {
-                fill: #6993FF;
+                fill: #6993ff73;
             }
             
             > section {
@@ -79,7 +79,7 @@ export const Block = styled.div<ToolProps>`
                 transform: translate3d(0,10px,0);
                 box-sizing: border-box;
                 color: #3F4254;
-                padding: 20px 10px;
+                padding: 15px 25px;
                 border-radius: 4px;
 
                 > ul {
@@ -98,7 +98,7 @@ export const Block = styled.div<ToolProps>`
                             color: #3F4254;
 
                             font-weight: 400;
-                            font-size: 14px;
+                            font-size: 13px;
                         }
 
                         &:hover svg path {
@@ -136,8 +136,8 @@ export const Block = styled.div<ToolProps>`
                 color: #3F4254;
 
                 span {
-                    font-weight: 500;
-                    font-size: 14px;
+                    font-weight: 400;
+                    font-size: 13px;
                 }
             }
             

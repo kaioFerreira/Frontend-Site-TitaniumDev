@@ -1,5 +1,75 @@
 import styled from 'styled-components';
 
+export const SubHeaderMob = styled.div`
+    transition: all 0.3s ease;
+    height: 54px;   
+    width: 95%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+
+    > ul {
+        display: flex;
+        align-items: center;
+        li {
+            transition: all 0.3ms ease;
+            cursor: pointer;
+            border-radius: 8px;
+            &:hover {
+                background-color:  #f3f6f947;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin-right: 10px;
+            list-style: none;
+            svg {
+                width: 18px;
+                height: 18px;
+                color: #FFFFFF;
+            }
+        }
+        > div {
+            color: #FFFFFF;
+
+            span {
+                font-weight: 400;
+                font-size: 13px;
+            }
+            strong {
+                font-weight: 700;
+            }
+        }
+        button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            margin-right: 10px;
+            padding: 10px;
+            background-color: #f3f6f947;
+            margin-left: 14px;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        display: flex;
+    }
+`;
 
 export const SubHeader = styled.div<MobMenuUserProps>`
     transition: all 0.3s ease;
@@ -7,7 +77,7 @@ export const SubHeader = styled.div<MobMenuUserProps>`
     width: 100%;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    
+    flex-wrap: wrap;
     display: flex;
     justify-content: center;
 
@@ -86,7 +156,7 @@ export const SubHeaderDiv = styled.div`
         li {
             transition: all 0.3ms ease;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 4px;
             &:hover {
                 background-color:  #f3f6f947;
             }
@@ -146,6 +216,9 @@ export const SubHeaderDiv = styled.div`
                     display: none;
                 }
             }
+            button {
+                display: none;
+            }
         }
     }
 `;
@@ -171,13 +244,41 @@ export const Container = styled.div`
 
 export const RigthNav = styled.div`
     display: flex;
-    svg {
-        margin-right: 20px;
-    }
+    align-items: center;
 
     button {
         border: none;
         background: none;
+    }
+    > button {
+        display: flex;
+        align-items: center;
+        
+        border-radius: 4px;
+        margin-right: 10px;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background-color: #f3f6f947;
+        }
+        &:hover span{
+            display: block;
+        }
+        span {
+            display: none;
+            position: absolute;
+            margin-top: 80px;
+            background: #f1f1f1;
+            padding: 6px 8px;
+            border-radius: 4px;
+            color: #000000;
+            font-size: 12px;
+            font-weight: 400;
+        }
     }
 
     @media (max-width: 900px) {
@@ -189,17 +290,35 @@ export const RigthNav = styled.div`
     }
 `;
 
-export const MobMenuRigth = styled.div`
+interface MobMenuRigthProps {
+    isVisible: Boolean;
+}
+
+export const MobMenuRigth = styled.div<MobMenuRigthProps>`
+
+    
     display: none;
     align-items: center;
     > svg {
         display: none;
+        
+        margin-right: 10px;
+        
     }
+
 
     @media (max-width: 900px) {
         display: flex;
         > svg {
            display: block;
+        }
+        button {
+            svg {
+                transition: transform 0.3s ease;  
+                margin-top: 5px;
+
+                transform: ${({ isVisible }) => isVisible ? "rotate(0grad)" : "rotate(50grad)" };
+            }
         }
     }
 `;
@@ -327,7 +446,7 @@ export const MenuLeft = styled.div<MenuLeftProps>`
 
             span {
                 font-weight: 400;
-                font-size: 15px;
+                font-size: 14px;
             }
         }
 
@@ -819,7 +938,7 @@ export const ProfileUser = styled.div<ProfileUserProps>`
                             padding: 0.15rem 0.75rem;
                             border-radius: 0.42rem;
                             margin-left: 4px;
-                            font-size: 0.8rem;
+                            font-size: 9px;
                             height: 20px;
                             font-weight: 500;
                             box-sizing: border-box;
@@ -839,8 +958,8 @@ export const ProfileUser = styled.div<ProfileUserProps>`
                 color: #6993FF;
                 background-color: #E1E9FF;
                 transition: all 0.15s ease;
-                font-weight: 700;
-                padding: 0.65rem 1rem;
+                font-weight: 400;
+                padding: 10px 15px;
                 user-select: none;
                 font-size: 13px;
                 text-decoration: none;
@@ -1290,6 +1409,13 @@ export const QuickPanel = styled.div<QuickPanelProps>`
         background: rgba(0, 0, 0, 0.1);
     }
 
+    @media (max-width: 900px){
+        right: ${({ isVisible }) => isVisible ? "0px" : "-100vw" };
+        > section {
+            width: 100vw;
+            max-width: 395px;
+        }
+    }
     
 `;
 

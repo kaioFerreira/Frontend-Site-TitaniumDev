@@ -12,7 +12,7 @@ const SignUp: React.FC = () => {
                     <h1>Login Account</h1>
                     <p>Enter your username and password</p>
 
-                    <input type="password" placeholder="User"/>
+                    <input type="text" placeholder="User"/>
                     <input type="password" placeholder="Password"/>
 
                     <nav>
