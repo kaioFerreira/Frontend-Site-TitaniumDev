@@ -340,7 +340,7 @@ export const LeftNav = styled.div`
     
     box-sizing: border-box;
     img {
-        width: 60px;
+        height: 35px;
         margin: 0 30px;
     }
 
