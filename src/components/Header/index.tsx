@@ -5,7 +5,9 @@ GrFormClose
 
 import { Link } from 'react-router-dom';
 import { TiDownload } from 'react-icons/ti';
-import { RiPagesLine } from 'react-icons/ri';
+import { MdKeyboardArrowRight } from 'react-icons/md';
+import { RiPagesLine, RiArrowDropRightLine } from 'react-icons/ri';
+
 import { 
     BsDot, 
     BsCollectionFill, 
@@ -13,7 +15,6 @@ import {
     BsFillXDiamondFill 
 } from 'react-icons/bs';
 
-import ToolBlock from '../../structure/ToolBlock';
 import {
 Container,
 Nav,
@@ -39,7 +40,9 @@ SubHeader,
 SubHeaderDiv,
 MobMenuRigth,
 MobSubHeader,
-SubHeaderMob
+SubHeaderMob, 
+ToolBlock,
+Block
 } from './styles';
 
 import Logo from '../../assets/logo.png';
@@ -67,6 +70,8 @@ import PhotoProfile from '../../assets/kaio.jpg';
 import File1 from '../../assets/files.png';
 import File2 from '../../assets/files2.png';
 import File3 from '../../assets/files3.png';
+
+import Button from '../../components/Button';
 
 type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
 
@@ -100,7 +105,17 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         const [activeQPSFeedback, setActiveQPSFeedback] = useState(false);
         const [activeQPSCPortal, setActiveQPSCPortal] = useState(false);
 
-        
+        const [activeSubMenuAcompanhamento, setActiveSubMenuAcompanhamento] = useState(false);
+        const [visibleTools, setVisibleTools] = useState(false);
+
+        function handleVisibleTools(){
+            setVisibleTools(!visibleTools);
+        }
+
+        function handleActiveSubMenuAcompanhamento(){
+            setActiveSubMenuAcompanhamento(!activeSubMenuAcompanhamento);
+        }
+
         function handleVisibleMobUserMenu(){
             setVisibleMobUserMenu(!visibleMobUserMenu);
         }
@@ -206,85 +221,141 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
             <Nav>
                 <LeftNav className="left-nav">
 
-                    <MenuLeft isVisible={visibleMenu}>
+                    <MenuLeft isVisible={visibleMenu} isActiveSubMenuAcompanhamento={activeSubMenuAcompanhamento}>
                         <ul>
                             <li>
-                                <Link to="#">
-                                <svg width="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <polygon points="0 0 24 0 24 24 0 24"></polygon>
-                                        <path
-                                            d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"
-                                            fill="#8c8c8c" fill-rule="nonzero"></path>
-                                        <path
-                                            d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"
-                                            fill="#8c8c8c" opacity="0.3"></path>
-                                    </g>
-                                </svg>
-                                <span>Dashboard</span>
-                                </Link>
+                                <section>
+                                    <Link to="#">
+                                        <svg width="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                                <path
+                                                    d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"
+                                                    fill="#8c8c8c" fill-rule="nonzero"></path>
+                                                <path
+                                                    d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"
+                                                    fill="#8c8c8c" opacity="0.3"></path>
+                                            </g>
+                                        </svg>
+                                        <span>Dashboard</span>
+                                        
+                                    </Link>
+                                </section>
+                            </li>
+                            <li onClick={handleActiveSubMenuAcompanhamento}>
+                                <section>
+                                    <Link to="#">
+                                        <svg width="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                                <path
+                                                    d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"
+                                                    fill="#8c8c8c" fill-rule="nonzero"></path>
+                                                <path
+                                                    d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"
+                                                    fill="#8c8c8c" opacity="0.3"></path>
+                                            </g>
+                                        </svg>
+                                        <span>Acompanhamento</span>
+                                    </Link>
+                                    
+                                    <MdKeyboardArrowRight/>
+                                </section>
+                                
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <BsDot/>
+                                            <span>Footer - 01</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <BsDot/>
+                                            <span>Footer - 02</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <BsDot/>
+                                            <span>Footer - 03</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <BsDot/>
+                                            <span>Footer - 04</span>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <h4>CUSTOM</h4>
                             </li>
                             <li>
-                                <Link to="#">
-                                <span>
-                                    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                            <rect fill="#8c8c8c" x="4" y="4" width="7" height="7" rx="1.5"></rect>
-                                            <path
-                                                d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
-                                                fill="#8c8c8c" opacity="0.3"></path>
-                                        </g>
-                                    </svg>
-                                </span>
-                                <span>Applications</span>
-                                </Link>
+                                <section>
+                                    <Link to="#">
+                                        <span>
+                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                                    <rect fill="#8c8c8c" x="4" y="4" width="7" height="7" rx="1.5"></rect>
+                                                    <path
+                                                        d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                                        fill="#8c8c8c" opacity="0.3"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        <span>Applications</span>
+                                    </Link>
+                                </section>
                             </li>
                             <li>
                                 <h4>LAYOUT</h4>
                             </li>
                             <li>
-                                <Link to="#">
-                                <span>
-                                    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                            <path
-                                                d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z"
-                                                fill="#8c8c8c"></path>
-                                            <rect fill="#8c8c8c" opacity="0.3"
-                                                transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519) "
-                                                x="16.3255682" y="2.94551858" width="3" height="18" rx="1"></rect>
-                                        </g>
-                                    </svg>
-                                </span>
-                                <span>Builder</span>
-                                </Link>
+                                <section>
+                                    <Link to="#">
+                                    <span>
+                                        <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <path
+                                                    d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z"
+                                                    fill="#8c8c8c"></path>
+                                                <rect fill="#8c8c8c" opacity="0.3"
+                                                    transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519) "
+                                                    x="16.3255682" y="2.94551858" width="3" height="18" rx="1"></rect>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span>Builder</span>
+                                    </Link>
+                                </section>
                             </li>
 
                             <li>
                                 <h4>FEATURES</h4>
                             </li>
                             <li>
-                                <Link to="#">
-                                <span>
-                                    <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                            <path
-                                                d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z"
-                                                fill="#8c8c8c"></path>
-                                            <path
-                                                d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z"
-                                                fill="#8c8c8c" opacity="0.3"></path>
-                                        </g>
-                                    </svg>
-                                </span>
-                                <span>Bootstrap</span>
-                                </Link>
+                                <section>
+                                    <Link to="#">
+                                    <span>
+                                        <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <path
+                                                    d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z"
+                                                    fill="#8c8c8c"></path>
+                                                <path
+                                                    d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z"
+                                                    fill="#8c8c8c" opacity="0.3"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span>Bootstrap</span>
+                                    </Link>   
+                                </section>
                             </li>
                         </ul>
                         { visibleMenu && <div onClick={handleVisibleMenu}></div> }
@@ -304,9 +375,209 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                     </button>
                     <img src={Logo} alt="Logo" />
                     
+                    <ToolBlock className="disable-mbl">
+                        <Block  isVisible={visibleTools} inVisible={!visibleTools}>
+                            <ul>
+                                <li>
+                                    <Link to="#">
+                                        <section>
+                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g id="Stockholm-icons-/-Design-/-Pen&amp;ruller" stroke="none" stroke-width="1"
+                                                    fill="none" fill-rule="evenodd">
+                                                    <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+                                                    <path
+                                                        d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z"
+                                                        id="Combined-Shape" fill="#8c8c8c6b" opacity="0.3"></path>
+                                                    <path
+                                                        d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z"
+                                                        id="Rectangle-102-Copy" fill="#8c8c8c6b"></path>
+                                                </g>
+                                            </svg>
+                                            <span>Inputs</span>
+                                        </section>
+                                        <RiArrowDropRightLine/>
+                                    </Link>
+                                    <section >
+                                        <ul>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Autocomplete</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Buttons</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Checkboxes</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Pickers</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Radio Buttons</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Selects</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Switches</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Text Fields</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Transfer List</Link>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </li>
 
-                    <ToolBlock></ToolBlock>
+                                <li>
+                                    <Link to="#">
+                                        <section>
+                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g id="Stockholm-icons-/-Navigation-/-Arrow-from-left" stroke="none" stroke-width="1"
+                                                    fill="none" fill-rule="evenodd">
+                                                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                                                    <rect id="Rectangle" fill="#8c8c8c6b" opacity="0.3"
+                                                        transform="translate(14.000000, 12.000000) rotate(-90.000000) translate(-14.000000, -12.000000) "
+                                                        x="13" y="5" width="2" height="14" rx="1"></rect>
+                                                    <rect id="Rectangle-199-Copy" fill="#8c8c8c6b" opacity="0.3" x="3" y="3" width="2"
+                                                        height="18" rx="1"></rect>
+                                                    <path
+                                                        d="M11.7071032,15.7071045 C11.3165789,16.0976288 10.6834139,16.0976288 10.2928896,15.7071045 C9.90236532,15.3165802 9.90236532,14.6834152 10.2928896,14.2928909 L16.2928896,8.29289093 C16.6714686,7.914312 17.281055,7.90106637 17.675721,8.26284357 L23.675721,13.7628436 C24.08284,14.136036 24.1103429,14.7686034 23.7371505,15.1757223 C23.3639581,15.5828413 22.7313908,15.6103443 22.3242718,15.2371519 L17.0300721,10.3841355 L11.7071032,15.7071045 Z"
+                                                        id="Path-94" fill="#8c8c8c6b" fill-rule="nonzero"
+                                                        transform="translate(16.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-16.999999, -11.999997) ">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            <span>Navigation</span>
+                                        </section>
+                                        <RiArrowDropRightLine/>
+                                    </Link>
+                                    <section>
+                                        <ul>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Bottom Navigation</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Breadcrumbs</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Drawers</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">NavLinks</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Menus</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Steppers</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Taps</Link>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </li>
 
+                                <li>
+                                    <Link to="#">
+                                        <section>
+                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g id="Stockholm-icons-/-Layout-/-Layout-left-panel-1" stroke="none" stroke-width="1"
+                                                    fill="none" fill-rule="evenodd">
+                                                    <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+                                                    <rect id="Rectangle-7-Copy" fill="#8c8c8c6b" x="9" y="5" width="13" height="14"
+                                                        rx="1.5">
+                                                    </rect>
+                                                    <rect id="Rectangle-7-Copy-2" fill="#8c8c8c6b" opacity="0.3" x="2" y="5" width="5"
+                                                        height="14" rx="1"></rect>
+                                                </g>
+                                            </svg>
+                                            <span>Surfaces</span>
+                                        </section>
+                                        <RiArrowDropRightLine/>
+                                    </Link>
+                                    <section>
+                                        <ul>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">App Bar</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Paper</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Cards</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Expansion Panels</Link>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </li>
+
+                                <li>
+                                    <Link to="#">
+                                        <section>
+                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g id="Stockholm-icons-/-General-/-Half-star" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                                                    <path
+                                                        d="M12,4.25932872 C12.1488635,4.25921584 12.3000368,4.29247316 12.4425657,4.36281539 C12.6397783,4.46014562 12.7994058,4.61977315 12.8967361,4.81698575 L14.9389263,8.95491503 L19.5054023,9.61846284 C20.0519472,9.69788046 20.4306287,10.2053233 20.351211,10.7518682 C20.3195865,10.9695052 20.2170993,11.1706476 20.0596157,11.3241562 L16.7552826,14.545085 L17.5353298,19.0931094 C17.6286908,19.6374458 17.263103,20.1544017 16.7187666,20.2477627 C16.5020089,20.2849396 16.2790408,20.2496249 16.0843804,20.1472858 L12,18 L12,4.25932872 Z"
+                                                        id="Combined-Shape" fill="#8c8c8c6b" opacity="0.3"></path>
+                                                    <path
+                                                        d="M12,4.25932872 L12,18 L7.91561963,20.1472858 C7.42677504,20.4042866 6.82214789,20.2163401 6.56514708,19.7274955 C6.46280801,19.5328351 6.42749334,19.309867 6.46467018,19.0931094 L7.24471742,14.545085 L3.94038429,11.3241562 C3.54490071,10.938655 3.5368084,10.3055417 3.92230962,9.91005817 C4.07581822,9.75257453 4.27696063,9.65008735 4.49459766,9.61846284 L9.06107374,8.95491503 L11.1032639,4.81698575 C11.277344,4.464261 11.6315987,4.25960807 12,4.25932872 Z"
+                                                        id="Combined-Shape" fill="#8c8c8c6b"></path>
+                                                </g>
+                                            </svg>
+                                            <span>Feedback</span>
+                                        </section>
+                                        <RiArrowDropRightLine/>
+                                    </Link>
+                                    <section>
+                                        <ul>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Progress</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Dialogs</Link>
+                                            </li>
+                                            <li>
+                                                <BsDot size={20}/>
+                                                <Link to="#">Snackbars</Link>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </li>
+                            </ul>
+                            { visibleTools && <div onClick={handleVisibleTools}></div> }
+                        </Block>
+                        <Button onClick={handleVisibleTools}>Material UI</Button>
+                    </ToolBlock>    
+                   
                 </LeftNav>
                 <RigthNav>
 
