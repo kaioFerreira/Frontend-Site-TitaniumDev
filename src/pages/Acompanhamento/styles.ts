@@ -27,7 +27,7 @@ export const Body = styled.div`
         height: 50vh;
 
         section {
-            a {
+            span {
                 margin: 10px;
                 cursor: pointer;
                 background: #006aff;
@@ -103,7 +103,7 @@ export const FooterAnimado1 = styled.div<AnimadoPros>`
 
     display: ${({ isVisible }) => isVisible ? "flex" : "none" };
     align-items: flex-end;
-    > a {
+    > span {
         cursor: pointer;
         transition: 0.3s;
         margin-right: 20px;
@@ -170,7 +170,7 @@ export const FooterAnimado2 = styled.div<Animado2Pros>`
     display: ${({ isVisible }) => isVisible ? "flex" : "none" };
     align-items: flex-end;
     flex-direction: column;
-    > a {
+    > span {
         cursor: pointer;
         transition: 0.3s;
         margin-right: 10px;

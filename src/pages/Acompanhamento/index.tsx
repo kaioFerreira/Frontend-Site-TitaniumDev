@@ -68,9 +68,9 @@ const Acompanhamento: React.FC = () => {
 
                 <div>
                     <section>
-                        <a onClick={handleVisibleFixo}>FIXO</a>
-                        <a onClick={handleVisibleAnimado1}>Animado 01</a>
-                        <a onClick={handleVisibleAnimado2}>Animado 02</a>
+                        <span onClick={handleVisibleFixo}>FIXO</span>
+                        <span onClick={handleVisibleAnimado1}>Animado 01</span>
+                        <span onClick={handleVisibleAnimado2}>Animado 02</span>
                     </section>
                     
                     <span>Acompanhamento</span>
@@ -222,9 +222,9 @@ const Acompanhamento: React.FC = () => {
                             </Link>
                         </li>
                     </ul>
-                    <a onClick={handleClickAnimado1}>
+                    <span onClick={handleClickAnimado1}>
                         <BsFillGearFill size={25}/>
-                    </a>
+                    </span>
                 </FooterAnimado1>
 
                 <FooterAnimado2 isVisible={visibleAnimado2}  isClick={clickAnimado2}>
@@ -298,9 +298,9 @@ const Acompanhamento: React.FC = () => {
                             </Link>
                         </li>
                     </ul>
-                    <a onClick={handleClickAnimado2}>
+                    <span onClick={handleClickAnimado2}>
                         <BsFillGearFill size={20}/>
-                    </a>
+                    </span>
                 </FooterAnimado2>
             </ConteinerFooter>
 
