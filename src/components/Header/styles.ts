@@ -510,11 +510,12 @@ export const MenuLeft = styled.div<MenuLeftProps>`
                     align-items: center;
                     justify-content: flex-start;
                     flex-direction: row;
-                    div {
+                    a {
+                        text-decoration: none;
                         display: flex;
                         align-items: center;
                         justify-content: flex-start;
-
+                        color: #3F4254;
                         width: 80%;
                         span {
                             font-weight: 400;

@@ -225,7 +225,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         <ul>
                             <li>
                                 <section>
-                                    <Link to="#">
+                                    <Link to="Dashboard">
                                         <svg width="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <polygon points="0 0 24 0 24 24 0 24"></polygon>
@@ -264,28 +264,10 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 
                                 <ul>
                                     <li>
-                                        <div>
-                                            <BsDot/>
-                                            <span>Footer - 01</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <BsDot/>
-                                            <span>Footer - 02</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <BsDot/>
-                                            <span>Footer - 03</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <BsDot/>
-                                            <span>Footer - 04</span>
-                                        </div>
+                                        <Link to="Acompanhamento">
+                                                <BsDot/>
+                                                <span>Consultivo</span>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>

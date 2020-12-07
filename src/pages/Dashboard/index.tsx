@@ -4,26 +4,24 @@ import { Conteiner, Body } from './styles';
 
 import Header from '../../components/Header';
 
-const Home: React.FC = () => {
+const Dashboard: React.FC = () => {
 
 return (
+    <Conteiner>
+        <Header/>
 
-<Conteiner>
-    <Header />
+        <Body>
 
-    <Body>
+            <section>
+                
+            </section>
 
-        <section>
-            
-        </section>
+            <div>
+                <span>Dashboard</span>
+            </div>
 
-        <div>
+        </Body>
+    </Conteiner>
+    )};
 
-        </div>
-
-    </Body>
-</Conteiner>
-)
-};
-
-export default Home;
+export default Dashboard;

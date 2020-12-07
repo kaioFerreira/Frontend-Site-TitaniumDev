@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {Conteiner, Content, Background} from './styles';
 
-const SignUp: React.FC = () => {
+const Home: React.FC = () => {
 
     return (
         <Conteiner>
@@ -24,4 +24,4 @@ const SignUp: React.FC = () => {
     )
 };
 
-export default SignUp;
+export default Home;
