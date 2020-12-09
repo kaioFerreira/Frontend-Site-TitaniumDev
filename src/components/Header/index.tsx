@@ -6,6 +6,7 @@ GrFormClose
 import { Link, useHistory  } from 'react-router-dom';
 import { TiDownload } from 'react-icons/ti';
 import { MdKeyboardArrowRight } from 'react-icons/md';
+import { AiTwotoneBuild } from 'react-icons/ai';
 import { RiPagesLine, RiArrowDropRightLine } from 'react-icons/ri';
 
 import { 
@@ -23,7 +24,10 @@ import {
     BsHammer,
     BsNewspaper,
     BsBook,
-    BsPlus
+    BsTools,
+    BsPlus,
+    BsPaperclip,
+    BsClipboardData
 } from 'react-icons/bs';
 
 import {
@@ -53,9 +57,8 @@ MobMenuRigth,
 MobSubHeader,
 SubHeaderMob, 
 
-SubHeaderExemplo1,
-SubHeaderExemplo2,
-SubHeaderExemplo3,
+SubHeaderConsultivo,
+SubHeaderConsultivoMob,
 
 ToolBlock,
 Block,
@@ -128,40 +131,18 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         const [clickAnimado2, setClickAnimado2] = useState(false);
 
         const [visibleSubHeaderDashboard, setVisibleSubHeaderDashboard] = useState(true);
-        const [visibleSubHeaderExemplo1, setVisibleSubHeaderExemplo1] = useState(false);
-        const [visibleSubHeaderExemplo2, setVisibleSubHeaderExemplo2] = useState(false);
-        const [visibleSubHeaderExemplo3, setVisibleSubHeaderExemplo3] = useState(false);
+        const [visibleSubHeaderConsultivo, setVisibleSubHeaderConsultivo] = useState(false);
 
         function handleVisibleSubHeaderDashboard(){
             setVisibleSubHeaderDashboard(true);
-            setVisibleSubHeaderExemplo1(false);
-            setVisibleSubHeaderExemplo2(false);
-            setVisibleSubHeaderExemplo3(false);
+            setVisibleSubHeaderConsultivo(false);
         }
 
         const history = useHistory();
 
-        function handleVisibleSubHeaderExemplo1(){
+        function handleVisibleSubHeaderConsultivo(){
             setVisibleSubHeaderDashboard(false);
-            setVisibleSubHeaderExemplo1(true);
-            setVisibleSubHeaderExemplo2(false);
-            setVisibleSubHeaderExemplo3(false);
-            history.push(`Acompanhamento`);
-        }
-
-        function handleVisibleSubHeaderExemplo2(){
-            setVisibleSubHeaderDashboard(false);
-            setVisibleSubHeaderExemplo1(false);
-            setVisibleSubHeaderExemplo2(true);
-            setVisibleSubHeaderExemplo3(false);
-            history.push(`Acompanhamento`);
-        }
-
-        function handleVisibleSubHeaderExemplo3(){
-            setVisibleSubHeaderDashboard(false);
-            setVisibleSubHeaderExemplo1(false);
-            setVisibleSubHeaderExemplo2(false);
-            setVisibleSubHeaderExemplo3(true);
+            setVisibleSubHeaderConsultivo(true);
             history.push(`Acompanhamento`);
         }
 
@@ -324,22 +305,10 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 </section>
                                 
                                 <ul>
-                                    <li onClick={handleVisibleSubHeaderExemplo1}>
+                                    <li onClick={handleVisibleSubHeaderConsultivo}>
                                         <Link to="#">
                                                 <BsDot/>
-                                                <span>Exemplo 01</span>
-                                        </Link>
-                                    </li>
-                                    <li onClick={handleVisibleSubHeaderExemplo2}>
-                                        <Link to="#">
-                                                <BsDot/>
-                                                <span>Exemplo 02</span>
-                                        </Link>
-                                    </li>
-                                    <li onClick={handleVisibleSubHeaderExemplo3}>
-                                        <Link to="#">
-                                                <BsDot/>
-                                                <span>Exemplo 03</span>
+                                                <span>Consultivo</span>
                                         </Link>
                                     </li>
                                 </ul>
@@ -1562,48 +1531,80 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         </button>
                     </ul>
                 </SubHeaderDashboard>
-                <SubHeaderMob>
-                    <ul>
-                        <li>
-                            <RiPagesLine/>
-                        </li>
-                        <li>
-                            <TiDownload/>
-                        </li>
-                        <li>
-                            <BsCollectionFill/>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"></rect>
-                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#FFFF"></path>
-                                </g>
-                            </svg>
-                        </li>
-                        <div>
-                            <span> Today: <strong>Nov 23</strong></span>
-                        </div>
-                        <button>
-                            <svg viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"></rect>
-                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#FFFF"></path>
-                                </g>
-                            </svg>
-                        </button>
 
-                    </ul>
-                </SubHeaderMob>
-            
-                <SubHeaderExemplo1 isVisible={visibleSubHeaderExemplo1}>
+                <SubHeaderConsultivo isVisible={visibleSubHeaderConsultivo}>
                     <div>
                         <h1>Acompanhamento</h1>
                         <BsDot color="#ffffffad"/>
-                        <span>Exemplo 01</span>
+                        <span>Consultivo</span>
                     </div>
                     <ul>
-                        
+                        <li>
+                            <BsTools/>
+                            <Link to="#"></Link>
+                            <ul>
+                                <li>
+                                    <BsPaperclip size={18}/>
+                                    <p>Anexar Processo</p>
+                                </li>
+                                <li>
+                                    <BsClipboardData size={18}/>
+                                    <p>Garantias</p>
+                                </li>
+                                <li>
+                                    <AiTwotoneBuild size={18}/>
+                                    <p>Acompanhamento</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>Informações do Autor</span>
+                            <BsInfo size="25"/>
+                            <Link to="#"></Link>
+                        </li>
+
+                        <li>
+                            <span>Responsáveis</span>
+                            <BsFillPersonFill size={17}/>
+                            <Link to="#"></Link>
+                        </li>
+                        <li>
+                            <BsHammer size={17}/>
+                            <Link to="#"></Link>
+                            <ul>
+                                <li>
+                                    <BsHammer size={17}/>
+                                    <p>Jurimetria</p>
+                                </li>
+                                <li>
+                                    <BsStopwatch size={17}/>
+                                    <p>Audiência</p>
+                                </li>
+                                <li>
+                                    <BsBook size={17}/>
+                                    <p>Agenda</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>Sentença</span>
+                            <BsNewspaper size={17}/>
+                            <Link to="#"></Link>
+                        </li>
+                        <li>
+                            <span>Histórico</span>
+                            <BsStopwatch size={17}/>
+                            <Link to="#"></Link>
+                        </li>
+                    </ul>
+                </SubHeaderConsultivo>
+                <SubHeaderConsultivoMob isVisible={visibleSubHeaderConsultivo}>
+                    <div>
+                        <h1>Acompanhamento</h1>
+                        <BsDot color="#ffffffad"/>
+                        <span>Consultivo</span>
+                    </div>
+                    <ul>
                         <button onClick={handleClickAnimado2}>
                             <svg viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1616,19 +1617,19 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                             <ul>
                                 <li>
                                     <Link to="#">
-                                        <BsPlus size={18}/>
+                                        <BsPaperclip size={18}/>
                                         Anexar Processo
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="#">
-                                        <BsPlus size={18}/>
+                                        <BsClipboardData size={18}/>
                                         Garantias
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="#">
-                                        <BsPlus size={18}/>
+                                        <AiTwotoneBuild size={18}/>
                                         Acompanhamento
                                     </Link>
                                 </li>
@@ -1685,164 +1686,8 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                             
                         </ConteinerFooter>
                     </ul>
-                
-                </SubHeaderExemplo1>
+                </SubHeaderConsultivoMob>
             
-            
-                <SubHeaderExemplo2 isVisible={visibleSubHeaderExemplo2}>
-                    <div>
-                        <h1>Acompanhamento</h1>
-                        <BsDot color="#ffffffad"/>
-                        <span>Exemplo 02</span>
-                    </div>
-                    <ul>
-                        <li>
-                            <BsPlus size={18}/>
-                            <Link to="#">
-                                Anexar Processo
-                            </Link>
-                        </li>
-                        <li>
-                            <BsPlus size={18}/>
-                            <Link to="#">
-                                Garantias
-                            </Link>
-                        </li>
-                        <li>
-                            <BsPlus size={18}/>
-                            <Link to="#">
-                                Acompanhamento
-                            </Link>
-                        </li>
-                        <li>
-                            <BsFillGearFill size={12}/>
-                            <Link to="#">
-                                Alterar Processo
-                            </Link>
-                        </li>
-                        <li>
-                            <BsInfo size={18}/>
-                            <Link to="#">
-                                Informações do Autor
-                            </Link>
-                        </li>
-
-                        <li>
-                            <BsFillPersonFill size={12}/>
-                            <Link to="#">
-                                Responsáveis
-                            </Link>
-                        </li>
-                        <li>
-                            <BsStopwatch size={12}/>
-                            <Link to="#">
-                                Audiência
-                            </Link>
-                        </li>
-                        <li>
-                            <BsHammer size={12}/>
-                            <Link to="#">
-                                Jurimetria
-                            </Link>
-                        </li>
-                        <li>
-                            <BsNewspaper size={12}/>
-                            <Link to="#">
-                                Sentença
-                            </Link>
-                        </li>
-                        <li>
-                            <BsBook size={12}/>
-                            <Link to="#">
-                                Agenda
-                            </Link>
-                        </li>
-                        <li>
-                            <BsStopwatch size={12}/>
-                            <Link to="#">
-                                Histórico
-                            </Link>
-                        </li>
-                    </ul>
-                </SubHeaderExemplo2>
-            
-            
-                <SubHeaderExemplo3 isVisible={visibleSubHeaderExemplo3}>
-                    <div>
-                        <h1>Acompanhamento</h1>
-                        <BsDot color="#ffffffad"/>
-                        <span>Exemplo 03</span>
-                    </div>
-                    <ul>
-                        <li>
-                            <BsPlus size={18}/>
-                            <Link to="#">
-                                Anexar Processo
-                            </Link>
-                        </li>
-                        <li>
-                            <BsPlus size={18}/>
-                            <Link to="#">
-                                Garantias
-                            </Link>
-                        </li>
-                        <li>
-                            <BsPlus size={18}/>
-                            <Link to="#">
-                                Acompanhamento
-                            </Link>
-                        </li>
-                        <li>
-                            <BsFillGearFill size={12}/>
-                            <Link to="#">
-                                Alterar Processo
-                            </Link>
-                        </li>
-                        <li>
-                            <BsInfo size={18}/>
-                            <Link to="#">
-                                Informações do Autor
-                            </Link>
-                        </li>
-
-                        <li>
-                            <BsFillPersonFill size={12}/>
-                            <Link to="#">
-                                Responsáveis
-                            </Link>
-                        </li>
-                        <li>
-                            <BsStopwatch size={12}/>
-                            <Link to="#">
-                                Audiência
-                            </Link>
-                        </li>
-                        <li>
-                            <BsHammer size={12}/>
-                            <Link to="#">
-                                Jurimetria
-                            </Link>
-                        </li>
-                        <li>
-                            <BsNewspaper size={12}/>
-                            <Link to="#">
-                                Sentença
-                            </Link>
-                        </li>
-                        <li>
-                            <BsBook size={12}/>
-                            <Link to="#">
-                                Agenda
-                            </Link>
-                        </li>
-                        <li>
-                            <BsStopwatch size={12}/>
-                            <Link to="#">
-                                Histórico
-                            </Link>
-                        </li>
-                    </ul>
-                </SubHeaderExemplo3>
             </SubHeader>
             
         </Container>

@@ -102,7 +102,9 @@ export const MobSubHeader = styled.div<MobMenuUserProps>`
         border: none;
         background: none;
     }
-
+    div {
+        margin-right: -10px;
+    }
     height: 54px;   
     width: 90%;
     box-sizing: border-box;
@@ -194,7 +196,6 @@ export const SubHeaderDashboard = styled.div<SubHeaderDashboardProps>`
             align-items: center;
             justify-content: center;
             
-            margin-right: 10px;
             padding: 10px;
             background-color: #f3f6f947;
             margin-left: 14px;
@@ -219,24 +220,21 @@ export const SubHeaderDashboard = styled.div<SubHeaderDashboardProps>`
                     display: none;
                 }
             }
-            button {
-                display: none;
-            }
         }
     }
 `;
 
-interface SubHeaderExemplo1Props {
+interface SubHeaderConsultivoMobProps {
     isVisible: Boolean;
 }
 
-export const SubHeaderExemplo1 = styled.div<SubHeaderExemplo1Props>`
+export const SubHeaderConsultivoMob = styled.div<SubHeaderConsultivoMobProps>`
 
     height: 100%;   
     width: 90%;
     box-sizing: border-box;
     
-    display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+    display: none;
     justify-content: space-between;
     align-items: center;
 
@@ -316,31 +314,23 @@ export const SubHeaderExemplo1 = styled.div<SubHeaderExemplo1Props>`
         }
     }
     @media (max-width: 900px) {
-        ul {
-            li {
-                
-                display: none;
-                
-            }
-            > div {
-                span {
-                    display: none;
-                }
-            }
-            button {
-                display: none;
+        display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+
+        > div {
+            h1 {
+                font-size: 14px;
             }
         }
     }
 `;
 
-interface SubHeaderExemplo2Props {
+interface SubHeaderConsultivoProps {
     isVisible: Boolean;
 }
-export const SubHeaderExemplo2 = styled.div<SubHeaderExemplo2Props>`
+export const SubHeaderConsultivo = styled.div<SubHeaderConsultivoProps>`
 
     height: 100%;   
-    width: 100%;
+    width: 90%;
     flex-wrap: wrap;
     box-sizing: border-box;
     
@@ -355,9 +345,6 @@ export const SubHeaderExemplo2 = styled.div<SubHeaderExemplo2Props>`
         align-items: center;
 
         
-        width: 100%;
-        height: 54px;
-        border-bottom: 1px solid rgba(255,255,255,0.1); 
         svg {
             height: 23px;
             width: 23px;  
@@ -370,15 +357,14 @@ export const SubHeaderExemplo2 = styled.div<SubHeaderExemplo2Props>`
             color: #ffffffad;
         }
         h1 {
-            padding-left: 5%;
             font-weight: 700;
             margin: 0 8px 0 5px;
             font-size: 22px;
         }
     }
 
-    ul {
-        transition: 0.3s;
+    > ul {
+        transition: all 0.3ms ease;
         list-style: none;
         display: flex;
 
@@ -386,113 +372,32 @@ export const SubHeaderExemplo2 = styled.div<SubHeaderExemplo2Props>`
         
         justify-content: center;
         box-sizing: border-box;
-        padding: 6px 5%;
-        place-content: flex-end;
-        li {
-             
-            transition: 0.3s;
-            align-self: flex-end;
-            cursor: pointer;
-            background-position: center;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 5px;
-            box-sizing: border-box;
-            margin: 1px 10px;
-            width: 175px;
-            svg {
-                color: #FFFF;
-                width: 20%;
-            }
-            a {
-                color: #FFFF;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
+        > li {
+            > span {
+                display: none;
+                position: absolute;
+                margin-top: 90px;
+                background: #f1f1f1;
+                padding: 6px 8px;
+                border-radius: 4px;
+                color: #000000;
                 font-size: 12px;
-                width: 80%;
+                font-weight: 400;
             }
 
-            &:hover {
-                background: #ffffff33;
-            }
-        }
-    }
-    
-`;
-
-interface SubHeaderExemplo3Props {
-    isVisible: Boolean;
-}
-export const SubHeaderExemplo3 = styled.div<SubHeaderExemplo3Props>`
-
-    height: 100%;   
-    width: 100%;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    
-    display: ${({ isVisible }) => isVisible ? "flex" : "none" };
-    justify-content: space-between;
-    align-items: center;
-
-    > div {
-        color: #FFFFFF;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-
-        
-        width: 100%;
-        height: 54px;
-        border-bottom: 1px solid rgba(255,255,255,0.1); 
-        svg {
-            height: 23px;
-            width: 23px;  
-            cursor: default;  
-            margin-right: 5px;
-        }
-        span {
-            
-            font-size: 14px;
-            color: #ffffffad;
-        }
-        h1 {
-            padding-left: 5%;
-            font-weight: 700;
-            margin: 0 8px 0 5px;
-            font-size: 22px;
-        }
-    }
-
-    ul {
-        transition: 0.3s;
-        list-style: none;
-        display: flex;
-
-        flex-wrap: wrap;
-        
-        justify-content: center;
-        box-sizing: border-box;
-        padding: 6px 5%;
-        li {
-             
             transition: 0.3s;
-            align-self: flex-end;
             cursor: pointer;
-            background-position: center;
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 5px;
             box-sizing: border-box;
-            margin: 1px 10px;
-            width: 175px;
+            margin: 0 5px;
+            width: 40px;
+            height: 40px;
             svg {
                 color: #FFFF;
-                margin-right: 10px;
             }
             a {
                 color: #FFFF;
@@ -504,10 +409,52 @@ export const SubHeaderExemplo3 = styled.div<SubHeaderExemplo3Props>`
 
             &:hover {
                 background: #ffffff33;
+                span {
+                    display: block;
+                }
+                ul {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translate3d(0,0,0);
+                }
+            }
+
+            ul {
+                transition: all 0.3s ease;
+                visibility: hidden;
+                opacity: 0;
+                transform: translate3d(0,10px,0);
+
+                position: absolute;
+                margin-top: 160px;
+                margin-left: 5%;
+                list-style: none;
+                li {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: fit-content;
+                    background: #007eb8;
+                    border-radius: 4px;
+                    margin-bottom: 3px;
+                    background-color: #f3f6f947;
+                    padding: 5px 10px;
+                    p {
+                        color: #FFFF;
+                        margin-left: 10px;
+                        font-size: 12px;
+                    }
+                    &:hover {
+                        background: #ffffff75;
+                    }
+                }
             }
         }
     }
-    
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 export const Container = styled.div`
@@ -585,8 +532,8 @@ interface Animado2Pros {
 }
 export const ConteinerFooter = styled.div<Animado2Pros>`
     position: absolute;
-    top: 140px;
-    right: 50px;
+    top: 60px;
+    right: 23px;
     display: flex;
     justify-content: flex-end;
     visibility: ${({ isClick }) => isClick ? "visible" : "hidden" };
@@ -624,9 +571,11 @@ export const ConteinerFooter = styled.div<Animado2Pros>`
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 12px;
+                font-size: 10px;
                 svg {
                     margin-right: 10px;
+                    width: 14px;
+                    height: 14px;
                 }
             }
         }
