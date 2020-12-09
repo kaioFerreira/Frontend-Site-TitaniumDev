@@ -25,7 +25,6 @@ import {
     BsNewspaper,
     BsBook,
     BsTools,
-    BsPlus,
     BsPaperclip,
     BsClipboardData
 } from 'react-icons/bs';
@@ -55,7 +54,6 @@ SubHeader,
 SubHeaderDashboard,
 MobMenuRigth,
 MobSubHeader,
-SubHeaderMob, 
 
 SubHeaderConsultivo,
 SubHeaderConsultivoMob,
