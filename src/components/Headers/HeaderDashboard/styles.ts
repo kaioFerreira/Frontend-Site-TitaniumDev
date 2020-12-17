@@ -1,5 +1,4 @@
 import styled, { keyframes, css } from 'styled-components';
-import Background from '../../assets/bg-10.jpg';
 
 export const SubHeaderMob = styled.div`
     transition: all 0.3s ease;
@@ -120,17 +119,13 @@ export const MobSubHeader = styled.div<MobMenuUserProps>`
     }
 `;
 
-interface SubHeaderDashboardProps {
-    isVisible: Boolean;
-}
-
-export const SubHeaderDashboard = styled.div<SubHeaderDashboardProps>`
+export const SubHeaderDashboard = styled.div`
 
     height: 100%;   
     width: 90%;
     box-sizing: border-box;
 
-    display: ${({ isVisible }) => isVisible ? "flex" : "none" };
+    display: flex;
     justify-content: space-between;
     align-items: center;
 
@@ -224,239 +219,6 @@ export const SubHeaderDashboard = styled.div<SubHeaderDashboardProps>`
     }
 `;
 
-interface SubHeaderConsultivoMobProps {
-    isVisible: Boolean;
-}
-
-export const SubHeaderConsultivoMob = styled.div<SubHeaderConsultivoMobProps>`
-
-    height: 100%;   
-    width: 90%;
-    box-sizing: border-box;
-    
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-
-    > div {
-        color: #FFFFFF;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        svg {
-            height: 23px;
-            width: 23px;  
-            cursor: default;  
-            margin-right: 5px;
-        }
-        span {
-            font-size: 14px;
-            color: #ffffffad;
-        }
-        h1 {
-            font-weight: 700;
-            margin: 0 8px 0 5px;
-            font-size: 22px;
-        }
-    }
-    > ul {
-        display: flex;
-        align-items: center;
-        li {
-            transition: all 0.3ms ease;
-            cursor: pointer;
-            border-radius: 4px;
-            &:hover {
-                background-color:  #f3f6f947;
-            }
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            margin-right: 10px;
-            list-style: none;
-            svg {
-                width: 18px;
-                height: 18px;
-                color: #FFFFFF;
-            }
-        }
-        > div {
-            color: #FFFFFF;
-
-            span {
-                font-weight: 400;
-                font-size: 13px;
-            }
-            strong {
-                font-weight: 700;
-            }
-        }
-        button {
-            width: 40px;
-            height: 40px;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            margin-right: 10px;
-            padding: 10px;
-            background-color: #f3f6f947;
-            margin-left: 14px;
-            border-radius: 8px;
-            width: 40px;
-            height: 40px;
-            svg {
-                width: 24px;
-                height: 24px;
-            }
-        }
-    }
-    @media (max-width: 900px) {
-        display: ${({ isVisible }) => isVisible ? "flex" : "none" };
-
-        > div {
-            h1 {
-                font-size: 14px;
-            }
-        }
-    }
-`;
-
-interface SubHeaderConsultivoProps {
-    isVisible: Boolean;
-}
-export const SubHeaderConsultivo = styled.div<SubHeaderConsultivoProps>`
-
-    height: 100%;   
-    width: 90%;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    
-    display: ${({ isVisible }) => isVisible ? "flex" : "none" };
-    justify-content: space-between;
-    align-items: center;
-
-    > div {
-        color: #FFFFFF;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-
-        
-        svg {
-            height: 23px;
-            width: 23px;  
-            cursor: default;  
-            margin-right: 5px;
-        }
-        span {
-            
-            font-size: 14px;
-            color: #ffffffad;
-        }
-        h1 {
-            font-weight: 700;
-            margin: 0 8px 0 5px;
-            font-size: 22px;
-        }
-    }
-
-    > ul {
-        transition: all 0.3ms ease;
-        list-style: none;
-        display: flex;
-
-        flex-wrap: wrap;
-        
-        justify-content: center;
-        box-sizing: border-box;
-        > li {
-            > span {
-                display: none;
-                position: absolute;
-                margin-top: 90px;
-                background: #f1f1f1;
-                padding: 6px 8px;
-                border-radius: 4px;
-                color: #000000;
-                font-size: 12px;
-                font-weight: 400;
-            }
-
-            transition: 0.3s;
-            cursor: pointer;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 5px;
-            box-sizing: border-box;
-            margin: 0 5px;
-            width: 40px;
-            height: 40px;
-            svg {
-                color: #FFFF;
-            }
-            a {
-                color: #FFFF;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 12px;
-            }
-
-            &:hover {
-                background: #ffffff33;
-                span {
-                    display: block;
-                }
-                ul {
-                    visibility: visible;
-                    opacity: 1;
-                    transform: translate3d(0,0,0);
-                }
-            }
-
-            ul {
-                transition: all 0.3s ease;
-                visibility: hidden;
-                opacity: 0;
-                transform: translate3d(0,10px,0);
-
-                position: absolute;
-                margin-top: 160px;
-                margin-left: 5%;
-                list-style: none;
-                li {
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: fit-content;
-                    background: #007eb8;
-                    border-radius: 4px;
-                    margin-bottom: 3px;
-                    background-color: #f3f6f947;
-                    padding: 5px 10px;
-                    p {
-                        color: #FFFF;
-                        margin-left: 10px;
-                        font-size: 12px;
-                    }
-                    &:hover {
-                        background: #ffffff75;
-                    }
-                }
-            }
-        }
-    }
-    @media (max-width: 900px) {
-        display: none;
-    }
-`;
-
 export const Container = styled.div`
 
     svg {
@@ -527,61 +289,6 @@ export const RigthNav = styled.div`
 interface MobMenuRigthProps {
     isVisible: Boolean;
 }
-interface Animado2Pros {
-    isClick: Boolean;
-}
-export const ConteinerFooter = styled.div<Animado2Pros>`
-    position: absolute;
-    top: 60px;
-    right: 23px;
-    display: flex;
-    justify-content: flex-end;
-    visibility: ${({ isClick }) => isClick ? "visible" : "hidden" };
-    ul {
-        transition: 0.3s;
-        list-style: none;
-        display: flex;
-        visibility: ${({ isClick }) => isClick ? "visible" : "hidden" };
-        transform: ${({ isClick }) => isClick ? "translate3d(0,0,0)" : "translate3d(200px,0,0)" };
-        flex-direction: column;
-
-        flex-wrap: wrap;
-        
-        justify-content: space-around;
-        box-sizing: border-box;
-        margin-right: 4px;
-        margin-bottom: 4px;
-        place-content: flex-end;
-        li {
-            align-self: flex-end;
-            cursor: pointer;
-            background-image: url(${Background});
-            background-position: center;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            padding: 5px 10px;
-            box-sizing: border-box;
-            margin: 1px;
-            width: max-content;
-            a {
-                color: #FFFF;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 10px;
-                svg {
-                    margin-right: 10px;
-                    width: 14px;
-                    height: 14px;
-                }
-            }
-        }
-    }
-`;
-
 
 export const MobMenuRigth = styled.div<MobMenuRigthProps>`
 

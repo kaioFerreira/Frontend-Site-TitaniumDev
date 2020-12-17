@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Conteiner, Body } from './styles';
 
-import Header from '../../components/Header';
+import Header from '../../components/Headers/HeaderDashboard';
 
 const Dashboard: React.FC = () => {
 
@@ -17,7 +17,7 @@ return (
             </section>
 
             <div>
-                <span>Dashboard</span>
+                <span></span>
             </div>
 
         </Body>

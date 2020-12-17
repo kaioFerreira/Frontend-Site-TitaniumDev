@@ -3,10 +3,9 @@ import {
 GrFormClose
 } from 'react-icons/gr';
 
-import { Link, useHistory  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { TiDownload } from 'react-icons/ti';
 import { MdKeyboardArrowRight } from 'react-icons/md';
-import { AiTwotoneBuild } from 'react-icons/ai';
 import { RiPagesLine, RiArrowDropRightLine } from 'react-icons/ri';
 
 import { 
@@ -14,19 +13,6 @@ import {
     BsCollectionFill, 
     BsTextRight, 
     BsFillXDiamondFill 
-} from 'react-icons/bs';
-
-import { 
-    BsFillGearFill, 
-    BsInfo,
-    BsFillPersonFill,
-    BsStopwatch,
-    BsHammer,
-    BsNewspaper,
-    BsBook,
-    BsTools,
-    BsPaperclip,
-    BsClipboardData
 } from 'react-icons/bs';
 
 import {
@@ -55,45 +41,41 @@ SubHeaderDashboard,
 MobMenuRigth,
 MobSubHeader,
 
-SubHeaderConsultivo,
-SubHeaderConsultivoMob,
-
 ToolBlock,
 Block,
-ConteinerFooter
 } from './styles';
 
-import Logo from '../../assets/logo.png';
-import Doc from '../../assets/doc.png';
-import Pdf from '../../assets/Pdf.png';
-import Xml from '../../assets/Xml.png';
+import Logo from '../../../assets/logo.png';
+import Doc from '../../../assets/doc.png';
+import Pdf from '../../../assets/Pdf.png';
+import Xml from '../../../assets/Xml.png';
 
-import Plurk from '../../assets/svg/006-plurk.svg';
-import Telegram from '../../assets/svg/015-telegram.svg';
-import Puzzle from '../../assets/svg/003-puzzle.svg';
-import Bebo from '../../assets/svg/005-bebo.svg';
-import Kickstarter from '../../assets/svg/014-kickstarter.svg';
+import Plurk from '../../../assets/svg/006-plurk.svg';
+import Telegram from '../../../assets/svg/015-telegram.svg';
+import Puzzle from '../../../assets/svg/003-puzzle.svg';
+import Bebo from '../../../assets/svg/005-bebo.svg';
+import Kickstarter from '../../../assets/svg/014-kickstarter.svg';
 
-import IconProfile from '../../assets/icons/my_profile.png';
-import IconMessages from '../../assets/icons/messages.png';
-import IconActivities from '../../assets/icons/rocket.png';
-import IconTask from '../../assets/icons/tasks.png';
+import IconProfile from '../../../assets/icons/my_profile.png';
+import IconMessages from '../../../assets/icons/messages.png';
+import IconActivities from '../../../assets/icons/rocket.png';
+import IconTask from '../../../assets/icons/tasks.png';
 
-import Ban from '../../assets/Ban.jpg';
-import Milena from '../../assets/Mia.jpg';
-import Meliodas from '../../assets/Nanatsu.jpg';
+import Ban from '../../../assets/Ban.jpg';
+import Milena from '../../../assets/Mia.jpg';
+import Meliodas from '../../../assets/Nanatsu.jpg';
 
-import PhotoProfile from '../../assets/kaio.jpg';
+import PhotoProfile from '../../../assets/kaio.jpg';
 
-import File1 from '../../assets/files.png';
-import File2 from '../../assets/files2.png';
-import File3 from '../../assets/files3.png';
+import File1 from '../../../assets/files.png';
+import File2 from '../../../assets/files2.png';
+import File3 from '../../../assets/files3.png';
 
-import Button from '../../components/Button';
+import Button from '../../Button';
 
 type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
 
-    const Header: React.FC <HeaderProps> = () => {
+    const Header: React.FC <HeaderProps> = ({title}) => {
         const [visibleMenu, setVisibleMenu] = useState(false);
         const [visibleSearch, setVisibleSearch] = useState(false);
         const [visibleQuick, setVisibleQuick] = useState(false);
@@ -126,34 +108,17 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         const [activeSubMenuAcompanhamento, setActiveSubMenuAcompanhamento] = useState(false);
         const [visibleTools, setVisibleTools] = useState(false);
 
-        const [clickAnimado2, setClickAnimado2] = useState(false);
-
-        const [visibleSubHeaderDashboard, setVisibleSubHeaderDashboard] = useState(true);
-        const [visibleSubHeaderConsultivo, setVisibleSubHeaderConsultivo] = useState(false);
-
-        function handleVisibleSubHeaderDashboard(){
-            setVisibleSubHeaderDashboard(true);
-            setVisibleSubHeaderConsultivo(false);
-        }
-
-        const history = useHistory();
-
-        function handleVisibleSubHeaderConsultivo(){
-            setVisibleSubHeaderDashboard(false);
-            setVisibleSubHeaderConsultivo(true);
-            history.push(`Acompanhamento`);
-        }
 
         function handleVisibleTools(){
             setVisibleTools(!visibleTools);
         }
 
-        function handleActiveSubMenuAcompanhamento(){
-            setActiveSubMenuAcompanhamento(!activeSubMenuAcompanhamento);
-        }
-
         function handleVisibleMobUserMenu(){
             setVisibleMobUserMenu(!visibleMobUserMenu);
+        }
+
+        function handleActiveSubMenuAcompanhamento(){
+            setActiveSubMenuAcompanhamento(!activeSubMenuAcompanhamento);
         }
 
         function handleQPSCPortal(){
@@ -252,10 +217,6 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         setVisibleEventsNotifications(false);
         }
 
-        function handleClickAnimado2(){
-            setClickAnimado2(!clickAnimado2);
-        }
-
         return (
         <Container>
             <Nav>
@@ -265,7 +226,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         <ul>
                             <li>
                                 <section>
-                                    <Link to="Dashboard" onClick={handleVisibleSubHeaderDashboard}>
+                                    <Link to="Dashboard">
                                         <svg width="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <polygon points="0 0 24 0 24 24 0 24"></polygon>
@@ -303,8 +264,8 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 </section>
                                 
                                 <ul>
-                                    <li onClick={handleVisibleSubHeaderConsultivo}>
-                                        <Link to="#">
+                                    <li>
+                                        <Link to="/Acompanhamento">
                                                 <BsDot/>
                                                 <span>Consultivo</span>
                                         </Link>
@@ -1492,7 +1453,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
             
             </MobSubHeader>
             <SubHeader isVisible={visibleMobUserMenu}>
-                <SubHeaderDashboard isVisible={visibleSubHeaderDashboard}>
+                <SubHeaderDashboard>
                     <div>
                         <h1>Dashboard</h1>
                         <BsDot color="#ffffffad"/>
@@ -1529,163 +1490,6 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         </button>
                     </ul>
                 </SubHeaderDashboard>
-
-                <SubHeaderConsultivo isVisible={visibleSubHeaderConsultivo}>
-                    <div>
-                        <h1>Acompanhamento</h1>
-                        <BsDot color="#ffffffad"/>
-                        <span>Consultivo</span>
-                    </div>
-                    <ul>
-                        <li>
-                            <BsTools/>
-                            <Link to="#"></Link>
-                            <ul>
-                                <li>
-                                    <BsPaperclip size={18}/>
-                                    <p>Anexar Processo</p>
-                                </li>
-                                <li>
-                                    <BsClipboardData size={18}/>
-                                    <p>Garantias</p>
-                                </li>
-                                <li>
-                                    <AiTwotoneBuild size={18}/>
-                                    <p>Acompanhamento</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>Informações do Autor</span>
-                            <BsInfo size="25"/>
-                            <Link to="#"></Link>
-                        </li>
-
-                        <li>
-                            <span>Responsáveis</span>
-                            <BsFillPersonFill size={17}/>
-                            <Link to="#"></Link>
-                        </li>
-                        <li>
-                            <BsHammer size={17}/>
-                            <Link to="#"></Link>
-                            <ul>
-                                <li>
-                                    <BsHammer size={17}/>
-                                    <p>Jurimetria</p>
-                                </li>
-                                <li>
-                                    <BsStopwatch size={17}/>
-                                    <p>Audiência</p>
-                                </li>
-                                <li>
-                                    <BsBook size={17}/>
-                                    <p>Agenda</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>Sentença</span>
-                            <BsNewspaper size={17}/>
-                            <Link to="#"></Link>
-                        </li>
-                        <li>
-                            <span>Histórico</span>
-                            <BsStopwatch size={17}/>
-                            <Link to="#"></Link>
-                        </li>
-                    </ul>
-                </SubHeaderConsultivo>
-                <SubHeaderConsultivoMob isVisible={visibleSubHeaderConsultivo}>
-                    <div>
-                        <h1>Acompanhamento</h1>
-                        <BsDot color="#ffffffad"/>
-                        <span>Consultivo</span>
-                    </div>
-                    <ul>
-                        <button onClick={handleClickAnimado2}>
-                            <svg viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"></rect>
-                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#FFFF"></path>
-                                </g>
-                            </svg>
-                        </button>
-                        <ConteinerFooter isClick={clickAnimado2}>
-                            <ul>
-                                <li>
-                                    <Link to="#">
-                                        <BsPaperclip size={18}/>
-                                        Anexar Processo
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <BsClipboardData size={18}/>
-                                        Garantias
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <AiTwotoneBuild size={18}/>
-                                        Acompanhamento
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <BsFillGearFill/>
-                                        Alterar Processo
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <BsInfo size={20}/>
-                                        Informações do Autor
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link to="#">
-                                        <BsFillPersonFill/>
-                                        Responsáveis
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <BsStopwatch/>
-                                        Audiência
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <BsHammer/>
-                                        Jurimetria
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <BsNewspaper/>
-                                        Sentença
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <BsBook/>
-                                        Agenda
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <BsStopwatch/>
-                                        Histórico
-                                    </Link>
-                                </li>
-                            </ul>
-                            
-                        </ConteinerFooter>
-                    </ul>
-                </SubHeaderConsultivoMob>
-            
             </SubHeader>
             
         </Container>
