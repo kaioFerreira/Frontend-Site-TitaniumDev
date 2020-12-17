@@ -16,6 +16,7 @@ import {
 } from './styles';
 
 import Header from '../../components/Headers/HeaderAcompanhamento';
+import { Link } from 'react-router-dom';
 
 const Acompanhamento: React.FC = () => {
     return (
@@ -27,13 +28,13 @@ const Acompanhamento: React.FC = () => {
 
                 <LinkPoints>
                     <BsDot/>
-                        <a href="#">AUTOS</a>
+                        <Link to="#">AUTOS</Link>
                     <BsDot/>
-                        <a href="#">PARTE ATIVA</a>
+                        <Link to="#">PARTE ATIVA</Link>
                     <BsDot/>
-                        <a href="#">PARTE PASSIVA</a>
+                        <Link to="#">PARTE PASSIVA</Link>
                     <BsDot/>
-                        <a href="#">OUTRAS INFORMAÇÕES</a>
+                        <Link to="#">OUTRAS INFORMAÇÕES</Link>
                     <BsDot/>
                 </LinkPoints>
             
