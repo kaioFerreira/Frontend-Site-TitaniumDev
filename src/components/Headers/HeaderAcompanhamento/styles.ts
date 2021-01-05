@@ -350,7 +350,9 @@ export const SubHeaderConsultivo = styled.div`
 
 export const Container = styled.div`
     background-image: url(${Background});
-
+    button {
+        outline-style: none;
+    }
     svg {
         cursor: pointer;
     }
@@ -2186,7 +2188,7 @@ export const QPSettings = styled.section<QPSettingsProps>`
 
             div{
                 h1 {
-                   
+                    font-size: 12px;
                     font-weight: 400;
                 }
                 margin-top: 15px;

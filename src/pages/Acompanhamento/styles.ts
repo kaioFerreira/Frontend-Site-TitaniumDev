@@ -44,6 +44,7 @@ export const LinkPoints = styled.div`
         margin: 0 10px;
     }
     a {
+        text-decoration: none;
         color: #00000042;
         font-style: none;
         &:hover {
@@ -83,6 +84,7 @@ export const Autos = styled.div`
 
     h1 {
         font-weight: 700;
+        font-family: 'Roboto'; 
     }
     h1,h3 {
         width: 100%;

@@ -38,7 +38,9 @@ const Acompanhamento: React.FC = () => {
                     <BsDot/>
                         <Link to="#">PARTE PASSIVA</Link>
                     <BsDot/>
-                        <Link to="#">OUTRAS INFORMAÇÕES</Link>
+                        <Link to="#outrasInformacoes">OUTRAS INFORMAÇÕES</Link>
+                    <BsDot/>
+                        <Link to="#movimentacoes">MOVIMENTAÇÕES</Link>
                     <BsDot/>
                 </LinkPoints>
             
