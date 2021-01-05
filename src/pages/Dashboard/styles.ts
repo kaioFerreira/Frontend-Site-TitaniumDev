@@ -20,17 +20,10 @@ export const Body = styled.div`
         
     }
 
-    div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    > div {
         width: 100%;
-        height: 50vh;
-        span {
-            font-size: 40px;
-            font-weight: 700;
-            color: black;
-        }
+        height: fit-content;
+        
     }
     
 `;

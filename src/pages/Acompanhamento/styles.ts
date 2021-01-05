@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Background from '../../assets/bg-10.jpg';
 export const Conteiner = styled.div`
@@ -355,10 +356,8 @@ export const Movimentacoes = styled.div`
         color: #B5B5C3;
     }
 
-    span {
-        margin-top: 15px;
-        & + span {
-            margin-left: 15px;
-        }
+    > div {
+        width: 100%;
+        height: fit-content;
     }
 `; 
