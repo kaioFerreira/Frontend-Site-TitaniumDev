@@ -4,7 +4,7 @@ import {
 } from 'react-icons/gr';
 
 import { Link } from 'react-router-dom';
-import { MdKeyboardArrowRight } from 'react-icons/md';
+import { MdKeyboardArrowRight,MdSettings } from 'react-icons/md';
 import { AiTwotoneBuild } from 'react-icons/ai';
 import {  RiArrowDropRightLine } from 'react-icons/ri';
 
@@ -121,6 +121,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         const [activeQPSCPortal, setActiveQPSCPortal] = useState(false);
 
         const [activeSubMenuAcompanhamento, setActiveSubMenuAcompanhamento] = useState(false);
+        const [activeSubMenuConfig, setActiveSubMenuConfig] = useState(false);
         const [visibleTools, setVisibleTools] = useState(false);
 
         const [clickAnimado2, setClickAnimado2] = useState(false);
@@ -131,6 +132,10 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
 
         function handleActiveSubMenuAcompanhamento(){
             setActiveSubMenuAcompanhamento(!activeSubMenuAcompanhamento);
+        }
+
+        function handleActiveSubMenuConfig(){
+            setActiveSubMenuConfig(!activeSubMenuConfig);
         }
 
         function handleVisibleMobUserMenu(){
@@ -242,7 +247,9 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
             <Nav>
                 <LeftNav className="left-nav">
 
-                    <MenuLeft isVisible={visibleMenu} isActiveSubMenuAcompanhamento={activeSubMenuAcompanhamento}>
+                    <MenuLeft isVisible={visibleMenu} 
+                    isActiveSubMenuAcompanhamento={activeSubMenuAcompanhamento}
+                    isActiveSubMenuConfig={activeSubMenuConfig}>
                         <ul>
                             <li>
                                 <section>
@@ -263,7 +270,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     </Link>
                                 </section>
                             </li>
-                            <li onClick={handleActiveSubMenuAcompanhamento}>
+                            <li className="item-acompanhamento" onClick={handleActiveSubMenuAcompanhamento}>
                                 <section>
                                     <Link to="#">
                                         <svg width="24px" viewBox="0 0 24 24" version="1.1">
@@ -360,6 +367,26 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     </Link>   
                                 </section>
                             </li>
+                            <li className="item-config" onClick={handleActiveSubMenuConfig}>
+                                <section>
+                                    <Link to="#">
+                                        <MdSettings size={20}/>
+                                        <span>Configurações</span>
+                                    </Link>
+                                    
+                                    <MdKeyboardArrowRight/>
+                                </section>
+                                
+                                <ul>
+                                    <li>
+                                        <Link to="/Usuarios">
+                                                <BsDot/>
+                                                <span>Usuario</span>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </li>
+                        
                         </ul>
                         { visibleMenu && <div onClick={handleVisibleMenu}></div> }
                     </MenuLeft>

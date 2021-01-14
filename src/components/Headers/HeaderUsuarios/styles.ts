@@ -171,10 +171,12 @@ export const SubHeaderConsultivoMob = styled.div`
             margin-right: 10px;
             list-style: none;
             svg {
-                width: 18px;
-                height: 18px;
+                width: 16px;
+                height: 16px;
                 color: #FFFFFF;
+                margin-right: 10px;
             }
+            
         }
         > div {
             color: #FFFFFF;
@@ -259,11 +261,32 @@ export const SubHeaderConsultivo = styled.div`
         transition: all 0.3ms ease;
         list-style: none;
         display: flex;
-
+        align-items: center;
         flex-wrap: wrap;
         margin-bottom: 0;
         justify-content: center;
         box-sizing: border-box;
+
+        section {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            background: #f2f3f7;
+            border-color: #f2f3f7;
+            padding: 10px;
+            border-radius: 2px;
+            margin: 0 5px;
+            input {
+                font-size: 12px;
+                border-style: none;
+                background: transparent;
+                color: #495057;
+                padding-right: 9px;
+            }
+            svg {
+                color: #d2d5de;
+            }
+        }
         > li {
             > span {
                 display: none;

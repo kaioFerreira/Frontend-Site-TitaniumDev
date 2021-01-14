@@ -115,7 +115,7 @@ const Acompanhamento: React.FC = () => {
                     <div>
                         <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
                             <Tab eventKey="home" title="processum (4)">
-                                <Table striped bordered hover>
+                                <Table responsive>
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -194,6 +194,7 @@ const Acompanhamento: React.FC = () => {
                                     </tbody>
                                 </Table>
                             </Tab>
+                            
                             <Tab eventKey="extra1" title="Extra1">
                                 <Table responsive>
                                     <thead>

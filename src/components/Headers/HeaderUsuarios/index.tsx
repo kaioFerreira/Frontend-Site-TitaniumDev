@@ -1,48 +1,56 @@
 import React, { useState, HtmlHTMLAttributes } from 'react';
 import {
-GrFormClose
+    GrFormClose
 } from 'react-icons/gr';
 
 import { Link } from 'react-router-dom';
-import { TiDownload } from 'react-icons/ti';
-import { MdKeyboardArrowRight, MdSettings } from 'react-icons/md';
-import { RiPagesLine, RiArrowDropRightLine } from 'react-icons/ri';
+import { MdKeyboardArrowRight,MdSettings } from 'react-icons/md';
+import { RiArrowDropRightLine,RiPrinterLine } from 'react-icons/ri';
+import { FaRegCopy } from 'react-icons/fa';
+import { FiPlus } from 'react-icons/fi';
+import { FaBorderAll, FaFilter, FaSearchPlus } from 'react-icons/fa';
 
 import { 
     BsDot, 
-    BsCollectionFill, 
     BsTextRight, 
     BsFillXDiamondFill 
 } from 'react-icons/bs';
 
-import {
-Container,
-Nav,
-LeftNav,
-MenuLeft,
-MenuSearch,
-QuickActions,
-ProfileUser,
-User,
-Profile,
-UserNotifications,
-AlertNotification,
-EventsNotification,
-LogsNotification,
-QuickPanel,
-AuditLogs,
-AuditLogsSystem,
-AuditLogsNotifications,
-QPNotifications,
-QPSettings,
-RigthNav,
-SubHeader,
-SubHeaderDashboard,
-MobMenuRigth,
-MobSubHeader,
+import { 
+    BsFileEarmarkSpreadsheet,
+} from 'react-icons/bs';
 
-ToolBlock,
-Block,
+import {
+    Container,
+    Nav,
+    LeftNav,
+    MenuLeft,
+    MenuSearch,
+    QuickActions,
+    ProfileUser,
+    User,
+    Profile,
+    UserNotifications,
+    AlertNotification,
+    EventsNotification,
+    LogsNotification,
+    QuickPanel,
+    AuditLogs,
+    AuditLogsSystem,
+    AuditLogsNotifications,
+    QPNotifications,
+    QPSettings,
+    RigthNav,
+    SubHeader,
+    MobMenuRigth,
+    MobSubHeader,
+
+    SubHeaderConsultivo,
+    SubHeaderConsultivoMob,
+
+    ToolBlock,
+    Block,
+    ConteinerFooter
 } from './styles';
 
 import Logo from '../../../assets/logo.png';
@@ -109,20 +117,22 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         const [activeSubMenuConfig, setActiveSubMenuConfig] = useState(false);
         const [visibleTools, setVisibleTools] = useState(false);
 
-        function handleActiveSubMenuConfig(){
-            setActiveSubMenuConfig(!activeSubMenuConfig);
-        }
+        const [clickAnimado2, setClickAnimado2] = useState(false);
 
         function handleVisibleTools(){
             setVisibleTools(!visibleTools);
         }
 
-        function handleVisibleMobUserMenu(){
-            setVisibleMobUserMenu(!visibleMobUserMenu);
-        }
-
         function handleActiveSubMenuAcompanhamento(){
             setActiveSubMenuAcompanhamento(!activeSubMenuAcompanhamento);
+        }
+
+        function handleActiveSubMenuConfig(){
+            setActiveSubMenuConfig(!activeSubMenuConfig);
+        }
+
+        function handleVisibleMobUserMenu(){
+            setVisibleMobUserMenu(!visibleMobUserMenu);
         }
 
         function handleQPSCPortal(){
@@ -221,11 +231,16 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         setVisibleEventsNotifications(false);
         }
 
+        function handleClickAnimado2(){
+            setClickAnimado2(!clickAnimado2);
+        }
+
         return (
         <Container>
             <Nav>
                 <LeftNav className="left-nav">
-                <MenuLeft isVisible={visibleMenu} 
+
+                    <MenuLeft isVisible={visibleMenu} 
                     isActiveSubMenuAcompanhamento={activeSubMenuAcompanhamento}
                     isActiveSubMenuConfig={activeSubMenuConfig}>
                         <ul>
@@ -1478,34 +1493,61 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
             
             </MobSubHeader>
             <SubHeader isVisible={visibleMobUserMenu}>
-                <SubHeaderDashboard>
+                
+                <SubHeaderConsultivo>
                     <div>
-                        <h1>Dashboard</h1>
+                        <h1>Usuarios</h1>
                         <BsDot color="#ffffffad"/>
-                        <span>Settings</span>
+                        <span>Configurações</span>
                     </div>
                     <ul>
                         <li>
-                            <RiPagesLine/>
+                            <span>Copiar</span>
+                            <FaRegCopy size="16"/>
+                            <Link to="#"></Link>
+                        </li>
+
+                        <li>
+                            <span>Gerar Planilha</span>
+                            <BsFileEarmarkSpreadsheet size={17}/>
+                            <Link to="#"></Link>
                         </li>
                         <li>
-                            <TiDownload/>
+                            <span>Imprimir</span>
+                            <RiPrinterLine size="18"/>
+                            <Link to="#"></Link>
+                        </li>
+                        <section>
+                            <input type="text" placeholder="Filtrar..."/>
+                            <FaSearchPlus size={17}/>
+                        </section>
+                        <li>
+                            <span>Filtro Avançado</span>
+                            <FaFilter size={15}/>
+                            <Link to="#"></Link>
                         </li>
                         <li>
-                            <BsCollectionFill/>
+                            <span>(Des)selecionar Todos</span>
+                            <FaBorderAll size={16}/>
+                            <Link to="#"></Link>
                         </li>
                         <li>
-                            <svg viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"></rect>
-                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#FFFF"></path>
-                                </g>
-                            </svg>
+                            <span>Ações Rapidas</span>
+                            <FiPlus size={22}/>
+                            <Link to="#"></Link>
                         </li>
-                        <div>
-                            <span> Today: <strong>Nov 23</strong></span>
-                        </div>
-                        <button>
+                    </ul>
+                
+                </SubHeaderConsultivo>
+                <SubHeaderConsultivoMob>
+                    <div>
+                        <h1>Usuarios</h1>
+                        <BsDot color="#ffffffad"/>
+                        <span>Configurações</span>
+                    </div>
+                    <ul>
+                        
+                        <button onClick={handleClickAnimado2}>
                             <svg viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="0" y="0" width="24" height="24"></rect>
@@ -1513,8 +1555,46 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 </g>
                             </svg>
                         </button>
+                        <ConteinerFooter isClick={clickAnimado2}>
+                        <ul>
+                            <li>
+                                <FaRegCopy size="16"/>
+                                <span>Copiar</span>
+                                <Link to="#"></Link>
+                            </li>
+
+                            <li>
+                                <BsFileEarmarkSpreadsheet size={17}/>
+                                <span>Gerar Planilha</span>
+                                <Link to="#"></Link>
+                            </li>
+                            <li>
+                                <RiPrinterLine size="18"/>
+                                <span>Imprimir</span>
+                                <Link to="#"></Link>
+                            </li>
+                            <li>
+                                <FaFilter size={15}/>
+                                <span>Filtro Avançado</span>
+                                <Link to="#"></Link>
+                            </li>
+                            <li>
+                                <FaBorderAll size={16}/>
+                                <span>(Des)selecionar Todos</span>
+                                <Link to="#"></Link>
+                            </li>
+                            <li>
+                                <FiPlus size={22}/>
+                                <span>Ações Rapidas</span>
+                                <Link to="#"></Link>
+                            </li>
+                        </ul>
+                            
+                        </ConteinerFooter>
                     </ul>
-                </SubHeaderDashboard>
+                
+                </SubHeaderConsultivoMob>
+            
             </SubHeader>
             
         </Container>

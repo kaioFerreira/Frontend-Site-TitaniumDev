@@ -84,7 +84,6 @@ export const Autos = styled.div`
 
     h1 {
         font-weight: 700;
-        font-family: 'Roboto'; 
     }
     h1,h3 {
         width: 100%;
@@ -319,9 +318,8 @@ export const OutrasInformacoes = styled.div`
         > div {
             width: 100%;
             strong {
-                    font-weight: 700;
-                    font-size: 12px;
-                }
+                font-weight: 700;
+                font-size: 12px;
             }
         }
     }

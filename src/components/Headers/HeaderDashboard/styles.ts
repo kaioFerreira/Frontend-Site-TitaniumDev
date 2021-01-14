@@ -365,6 +365,7 @@ export const Nav = styled.nav`
 interface MenuLeftProps {
     isVisible: Boolean;
     isActiveSubMenuAcompanhamento: Boolean;
+    isActiveSubMenuConfig: Boolean;
 }
 
 interface MenuSearchProps {
@@ -424,12 +425,14 @@ export const MenuLeft = styled.div<MenuLeftProps>`
         
         section {
             display: flex;
+            justify-content: space-between;
             align-items: center;
 
             cursor: pointer;
 
             > svg {
                 transition: 0.3s;
+                margin-right: 20px;
                 height: 15px;
             }
 
@@ -540,28 +543,46 @@ export const MenuLeft = styled.div<MenuLeftProps>`
         }
     }
 
-    ${props => props.isActiveSubMenuAcompanhamento && css`
-        > ul {
+    .item-acompanhamento {
+        ${props => props.isActiveSubMenuAcompanhamento && css`
             section {
                 > svg {
                     transform: rotateZ(90deg);
                 }
             }
-            li {
-                ul {
-                    opacity: 1;
-                    li {
-                        animation: ${subMenuOpen} 0.3s;
-                        height: 40px;
-                        visibility: visible;
-                        
-                    }
+                
+            ul {
+                opacity: 1;
+                li {
+                    animation: ${subMenuOpen} 0.3s;
+                    height: 40px;
+                    visibility: visible;
+                    
                 }
             }
-        }
+        `}
+    }
+    .item-config {
+        ${props => props.isActiveSubMenuConfig && css`
+            section {
+                > svg {
+                    transform: rotateZ(90deg);
+                }
+            }
+            
+            ul {
+                opacity: 1;
+                li {
+                    animation: ${subMenuOpen} 0.3s;
+                    height: 40px;
+                    visibility: visible;
+                    
+                }
+            }
+                
+        `}
+    }
 
-    `}
-    
     > svg {
         width: 24px;
         margin-right: 15px;
