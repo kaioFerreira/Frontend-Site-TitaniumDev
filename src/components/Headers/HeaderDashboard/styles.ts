@@ -408,7 +408,7 @@ export const MenuLeft = styled.div<MenuLeftProps>`
         width: 100%;
         height: 100%;
         z-index: -1101;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
     > ul {
         transition: all 0.5s ease;
@@ -724,7 +724,7 @@ export const MenuSearch = styled.div<MenuSearchProps>`
         z-index: -1000;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     svg {
@@ -834,7 +834,7 @@ export const QuickActions = styled.div<QuickActionsProps>`
 
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     @media (max-width: 900px) {
@@ -1102,7 +1102,7 @@ export const ProfileUser = styled.div<ProfileUserProps>`
         cursor: default;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     @media (max-width: 900px) {
@@ -1255,7 +1255,7 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
 
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     @media (max-width: 900px) {
@@ -1517,7 +1517,7 @@ export const QuickPanel = styled.div<QuickPanelProps>`
         z-index: -1000;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     @media (max-width: 900px){
@@ -2082,7 +2082,7 @@ export const Block = styled.div<ToolProps>`
         width: 100%;
         height: 100%;
         z-index: 1001;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     > ul {

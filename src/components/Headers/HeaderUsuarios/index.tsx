@@ -3,12 +3,24 @@ import {
     GrFormClose
 } from 'react-icons/gr';
 
+import Table from 'react-bootstrap/Table';
+
 import { Link } from 'react-router-dom';
 import { MdKeyboardArrowRight,MdSettings } from 'react-icons/md';
 import { RiArrowDropRightLine,RiPrinterLine } from 'react-icons/ri';
 import { FaRegCopy } from 'react-icons/fa';
 import { FiPlus } from 'react-icons/fi';
-import { FaBorderAll, FaFilter, FaSearchPlus } from 'react-icons/fa';
+import { 
+    FaBorderAll, 
+    FaFilter, 
+    FaSearchPlus, 
+    FaUserEdit ,
+    FaUserAlt,
+    FaUserSlash,
+    FaUserShield,
+    FaUserTag,
+    FaUserPlus
+} from 'react-icons/fa';
 
 import { 
     BsDot, 
@@ -50,7 +62,10 @@ import {
 
     ToolBlock,
     Block,
-    ConteinerFooter
+    ConteinerFooter,
+
+    ConfigUserSubHeader,
+    FiltroAvancadoUserSubHeader
 } from './styles';
 
 import Logo from '../../../assets/logo.png';
@@ -119,8 +134,20 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
 
         const [clickAnimado2, setClickAnimado2] = useState(false);
 
+
+        const [configUserActive, setConfigUserActive] = useState(false);
+        const [filtroAvancadoUser, setFiltroAvancadoUser] = useState(false);
+
         function handleVisibleTools(){
             setVisibleTools(!visibleTools);
+        }
+
+        function handleActiveConfigUser(){
+            setConfigUserActive(!configUserActive);
+        }
+
+        function handleFiltroAvancadoUser(){
+            setFiltroAvancadoUser(!filtroAvancadoUser);
         }
 
         function handleActiveSubMenuAcompanhamento(){
@@ -1521,20 +1548,93 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                             <input type="text" placeholder="Filtrar..."/>
                             <FaSearchPlus size={17}/>
                         </section>
-                        <li>
-                            <span>Filtro Avançado</span>
+                        <li onClick={handleFiltroAvancadoUser}>
+                            { !filtroAvancadoUser && <span>Filtro Avançado</span>}
                             <FaFilter size={15}/>
                             <Link to="#"></Link>
+                            <FiltroAvancadoUserSubHeader isvisible={filtroAvancadoUser}>
+                                <section>
+                                    <h1>Filtros Avançados</h1>
+                                    <div>
+                                        <h2>Grupo</h2>
+                                        <h2>Estado</h2>
+                                        <h2>Área</h2>
+                                        <h2>Somente Ativos</h2>
+                                    </div>
+                                    
+                                    <Table responsive>
+                                        <thead>
+                                            <tr>
+                                            <th>Gerente</th>
+                                            <th>Amapá</th>
+                                            <th>Área</th>
+                                            <th>Somente ativos</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </Table>
+                                    
+                                    <div className="div-tableFilter">
+                                        <button>Limpar Filtro</button>
+                                        <button>Aplicar</button>
+                                    </div>
+                                </section>
+                                { filtroAvancadoUser && <div onClick={handleFiltroAvancadoUser}></div> }
+                            </FiltroAvancadoUserSubHeader>
                         </li>
                         <li>
                             <span>(Des)selecionar Todos</span>
                             <FaBorderAll size={16}/>
                             <Link to="#"></Link>
                         </li>
-                        <li>
-                            <span>Ações Rapidas</span>
+                        <li onClick={handleActiveConfigUser}>
+                            { !configUserActive && <span>Ações Rápidas</span>}
                             <FiPlus size={22}/>
                             <Link to="#"></Link>
+
+                            <ConfigUserSubHeader isvisible={configUserActive}>
+                                <li>
+                                    <div>
+                                        <FaUserEdit size={18} />
+                                    </div>
+                                    <p>Editar Usuario</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <FaUserPlus size={18} />
+                                    </div>
+                                    <p>Novo Usuario</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <FaUserTag size={18} />
+                                    </div>
+                                    <p>Copiar Usuario</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <FaUserShield size={18} />
+                                    </div>
+                                    <p>Resetar Senha</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <FaUserSlash size={18} />
+                                    </div>
+                                    <p>Desabilitar Selecionados</p>
+                                </li>
+                                <li>
+                                    <div>
+                                        <FaUserAlt size={15} />
+                                    </div>
+                                    <p>Habilitar Selecionados</p>
+                                </li>
+                                { configUserActive && <div onClick={handleActiveConfigUser}></div> }
+                            </ConfigUserSubHeader>
                         </li>
                     </ul>
                 

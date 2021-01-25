@@ -92,6 +92,158 @@ interface MobMenuUserProps {
     isVisible: Boolean;
 }
 
+interface ConfigUserProps {
+    isvisible: Boolean;
+}
+
+export const ConfigUserSubHeader = styled.div<ConfigUserProps>`
+    position: absolute;
+
+    display:  ${({ isvisible }) => isvisible ? "block" : "none" };
+    margin-top: 260px;    
+    margin-right: 160px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+    background: #007eb8;
+    cursor: default;
+    z-index: 1101;
+
+    > div {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: -1000;
+        width: 100%;
+        height: 100%;
+        background: rgb(0 0 0 / 38%);
+    }
+    li {
+        &:hover{
+            background: #006fb8;
+        }
+        display: flex;
+        align-items: center;
+        width: 200px;
+        margin-bottom: 5px;
+        margin-left: 4px;
+        cursor: pointer;
+
+        div {
+            img {
+                color: #ffff;
+            }
+            width: 20px;
+            margin-left: 4px;
+        }
+        p {
+            color: #FFFF;
+            margin-left: 10px;
+            margin-bottom: 0;
+            font-size: 12px;
+        }
+    }
+`;
+
+
+interface FiltroAvancadoProps {
+    isvisible: Boolean;
+}
+
+export const FiltroAvancadoUserSubHeader = styled.div<FiltroAvancadoProps>`
+    
+    display:  ${({ isvisible }) => isvisible ? "flex" : "none" };
+    justify-content: center;
+    > div {
+        cursor: default;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1001;
+        width: 100%;
+        height: 100%;
+        background: rgb(0 0 0 / 38%);
+    }
+   
+    > section {
+        z-index: 1101;
+        position: fixed;
+
+        display:  ${({ isvisible }) => isvisible ? "flex" : "none" };
+        top: 180px;
+        left: calc(50% - 450px);
+        border-radius: 4px;
+        background: #f2f3f7;
+
+        cursor: default;
+
+        margin-left: 0 !important;
+        
+        height: fit-content !important;
+        flex-direction: column;
+
+        padding: 20px !important;
+        width: 900px;
+        h1 {
+            width: 100%;
+            font-weight: 250;
+        }
+        div {
+
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            h2 {
+                padding-top: 30px;
+                flex-grow: 1;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+        
+   }
+
+   thead {
+       tr {
+            display: flex;
+       }
+       th {
+            display: flex;
+            flex-grow: 1;
+            font-size: 14px;
+            font-weight: 400;
+       }
+   }
+
+   .div-tableFilter {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            &:hover {
+                color: #fff;
+                background-color: #384ad7;
+                border-color: #2e40d4;
+            }
+            &:not(:last-child) {
+                margin-right: 15px;
+                background-color: transparent;
+                color: #6c7293;
+                border: 1px solid #e2e5ec;
+            }
+
+            margin-top: 40px;
+            font-size: 12px;
+            color: #fff;
+            background-color: #384ad7;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            padding: 8px 10px;
+            
+        }
+   }
+`;
+
 export const MobSubHeader = styled.div<MobMenuUserProps>`
     background-image: url(${Background});
     transition: all 0.3s ease;
@@ -618,7 +770,7 @@ export const MenuLeft = styled.div<MenuLeftProps>`
         width: 100%;
         height: 100%;
         z-index: -1101;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
     > ul {
         transition: all 0.5s ease;
@@ -934,7 +1086,7 @@ export const MenuSearch = styled.div<MenuSearchProps>`
         z-index: -1000;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     svg {
@@ -1044,7 +1196,7 @@ export const QuickActions = styled.div<QuickActionsProps>`
 
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     @media (max-width: 900px) {
@@ -1312,7 +1464,7 @@ export const ProfileUser = styled.div<ProfileUserProps>`
         cursor: default;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     @media (max-width: 900px) {
@@ -1465,7 +1617,7 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
 
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     @media (max-width: 900px) {
@@ -1727,7 +1879,7 @@ export const QuickPanel = styled.div<QuickPanelProps>`
         z-index: -1000;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     @media (max-width: 900px){
@@ -2292,7 +2444,7 @@ export const Block = styled.div<ToolProps>`
         width: 100%;
         height: 100%;
         z-index: 1001;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 38%);
     }
 
     > ul {

@@ -21,3 +21,4 @@
 [1111/014627.919:ERROR:exception_snapshot_win.cc(99)] thread ID 8884 not found in process
 [1112/095807.727:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
 [1207/105007.858:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
+[0125/085235.364:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
