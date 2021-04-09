@@ -23,16 +23,16 @@ scroll-behavior: smooth;
         height: 250px;
         width: 100%;
         background-image: url(${Background});
-        
-        
+
+
     }
 
     > div {
         width: 100%;
         height: fit-content;
-        
+
     }
-    
+
 `;
 
 export const TableUsers = styled.div`
@@ -175,7 +175,7 @@ export const DadosUser = styled.div<DadosUserProps>`
                 border-radius: 50%;
 
                 &:hover {
-                    
+
                     background-color: #6c5173;
                     svg {
                         path {
@@ -258,7 +258,7 @@ export const DadosUser = styled.div<DadosUserProps>`
             }
         }
     }
-    
+
     .div-infos {
         background: #FFFF;
         width: 100%;
@@ -373,7 +373,7 @@ export const DadosUser = styled.div<DadosUserProps>`
             font-weight: 400;
             font-size: 12px;
             margin-bottom: 7px;
-            
+
             margin-top: 30px;
         }
         div {
@@ -397,7 +397,7 @@ export const DadosUser = styled.div<DadosUserProps>`
                 }
             }
         }
-        
+
     }
     .endereco {
         min-width: 366px;

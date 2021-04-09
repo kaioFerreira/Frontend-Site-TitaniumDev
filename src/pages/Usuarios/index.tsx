@@ -23,9 +23,9 @@ const Usuarios: React.FC = () => {
     const [visibleCredenciais, setVisibleCredenciais] = useState(false);
     const [activeAtuacao, setActiveAtuacaoUser] = useState(false);
     const [activeEmpresa, setActiveEmpresa] = useState(false);
-    
+
     const [activeCredenciaisUser, setActiveCredenciaisUser] = useState(true);
-    
+
     function handleVisibleDadosUser(){
         setVisibleDadosUser(!visibleDadosUser);
     }
@@ -91,7 +91,7 @@ return (
                             </tr>
                         </thead>
                         <tbody>
-                                {   users.map( user => 
+                                {   users.map( user =>
                                     <tr key={user.usr_id} onClick={handleVisibleDadosUser}>
                                         <td>{user.usr_id}</td>
                                         <td>{user.usr_nome}</td>
@@ -103,7 +103,7 @@ return (
                         </tbody>
                     </Table>
             </TableUsers>
-            
+
         </Body>
 
         <DadosUser isVisible={visibleDadosUser} activeUser={activeUser} activeCredenciaisUser={activeCredenciaisUser}>
@@ -115,7 +115,7 @@ return (
                     </div>
 
                 </section>
-                    
+
                 <section className="conteiner-dados">
                     <div className="div-nav">
                         <div>
@@ -162,11 +162,11 @@ return (
                                     <h3>Empresa</h3>
                                 </div>
                             </li>
-                            
+
                         </ul>
                     </div>
 
-                    { visibleDataUser && 
+                    { visibleDataUser &&
                     <div className="div-infos">
                         <h1>Dados</h1>
                         <div>
@@ -212,7 +212,7 @@ return (
                                     <p>OAB</p>
                                 </div>
                             </div>
-                        
+
                         </div>
                         <div className="div-extras">
                             <div className="endereco">
@@ -242,7 +242,7 @@ return (
                         </div>
                     </div>
                     }
-                    
+
                     { visibleCredenciais &&
                         <div className="div-credenciais">
                             <h1>Credenciais</h1>
@@ -304,7 +304,7 @@ return (
                             </div>
                         </div>
                     }
-                    
+
                 </section>
                 <div>
                     <button>

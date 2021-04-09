@@ -8,14 +8,14 @@ import { MdKeyboardArrowRight,MdSettings } from 'react-icons/md';
 import { AiTwotoneBuild } from 'react-icons/ai';
 import {  RiArrowDropRightLine } from 'react-icons/ri';
 
-import { 
-    BsDot, 
-    BsTextRight, 
-    BsFillXDiamondFill 
+import {
+    BsDot,
+    BsTextRight,
+    BsFillXDiamondFill
 } from 'react-icons/bs';
 
-import { 
-    BsFillGearFill, 
+import {
+    BsFillGearFill,
     BsInfo,
     BsFillPersonFill,
     BsStopwatch,
@@ -87,6 +87,7 @@ import File2 from '../../../assets/files2.png';
 import File3 from '../../../assets/files3.png';
 
 import Button from '../../Button';
+import { useAuth } from '../../../hooks/auth';
 
 type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
 
@@ -102,12 +103,13 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
         const [visibleQuickPanel, setVisibleQuickPanel] = useState(false);
         const [visibleMobUserMenu, setVisibleMobUserMenu] = useState(false);
 
+        const { signOut } = useAuth();
 
         const [visibleAuditLogs, setVisibleAuditLogs] = useState(true);
         const [visibleQPNotifications, setVisibleQPNotifications] = useState(false);
         const [visibleQPSettings, setVisibleQPSettings] = useState(false);
 
-        
+
         const [activeQPNotification, setActiveQPNotification] = useState(false);
         const [activeQPTracking, setActiveQPTracking] = useState(false);
         const [activeQPPortal, setActiveQPPortal] = useState(false);
@@ -247,7 +249,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
             <Nav>
                 <LeftNav className="left-nav">
 
-                    <MenuLeft isVisible={visibleMenu} 
+                    <MenuLeft isVisible={visibleMenu}
                     isActiveSubMenuAcompanhamento={activeSubMenuAcompanhamento}
                     isActiveSubMenuConfig={activeSubMenuConfig}>
                         <ul>
@@ -266,7 +268,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                             </g>
                                         </svg>
                                         <span>Dashboard</span>
-                                        
+
                                     </Link>
                                 </section>
                             </li>
@@ -286,10 +288,10 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                         </svg>
                                         <span>Acompanhamento</span>
                                     </Link>
-                                    
+
                                     <MdKeyboardArrowRight/>
                                 </section>
-                                
+
                                 <ul>
                                     <li>
                                         <Link to="/Acompanhamento">
@@ -364,7 +366,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                         </svg>
                                     </span>
                                     <span>Bootstrap</span>
-                                    </Link>   
+                                    </Link>
                                 </section>
                             </li>
                             <li className="item-config" onClick={handleActiveSubMenuConfig}>
@@ -373,10 +375,10 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                         <MdSettings size={20}/>
                                         <span>Configurações</span>
                                     </Link>
-                                    
+
                                     <MdKeyboardArrowRight/>
                                 </section>
-                                
+
                                 <ul>
                                     <li>
                                         <Link to="/Usuarios">
@@ -386,7 +388,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     </li>
                                 </ul>
                             </li>
-                        
+
                         </ul>
                         { visibleMenu && <div onClick={handleVisibleMenu}></div> }
                     </MenuLeft>
@@ -404,7 +406,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                         </svg>
                     </button>
                     <img src={Logo} alt="Logo" />
-                    
+
                     <ToolBlock className="disable-mbl">
                         <Block  isVisible={visibleTools} inVisible={!visibleTools}>
                             <ul>
@@ -606,8 +608,8 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                             { visibleTools && <div onClick={handleVisibleTools}></div> }
                         </Block>
                         <Button onClick={handleVisibleTools}>Material UI</Button>
-                    </ToolBlock>    
-                   
+                    </ToolBlock>
+
                 </LeftNav>
                 <RigthNav>
 
@@ -1034,7 +1036,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                             <span>+4500$</span>
                                         </li>
                                     </ul>
-                                
+
                                 </AuditLogsSystem>
                                 <AuditLogsNotifications isVisible={visibleAuditLogs}>
                                     <ul>
@@ -1221,7 +1223,7 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                             <p>9 photodrapehrs, 7 designer</p>
                                         </div>
                                     </li>
-                                    
+
                                     <li>
                                         <span>
                                             <img src={Plurk} alt="Documento" />
@@ -1271,11 +1273,11 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                 </ul>
 
                             </QPNotifications>
-                       
-                            <QPSettings 
-                                isVisible={visibleQPSettings} 
-                                qpsNotification={activeQPNotification} 
-                                qpsTracking={activeQPTracking} 
+
+                            <QPSettings
+                                isVisible={visibleQPSettings}
+                                qpsNotification={activeQPNotification}
+                                qpsTracking={activeQPTracking}
                                 qpsPortal={activeQPPortal}
                                 qpsReports={activeQPSReports}
                                 qpsExport={activeQPSExport}
@@ -1420,14 +1422,14 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     </li>
                                 </ul>
                                 <nav>
-                                    <Link to="/Home">Sign Out</Link>
-                                    <Link to="#">Upgrade Plan</Link>
+                                    <div onClick={signOut}>Sign Out</div>
+                                    <div>Upgrade Plan</div>
                                 </nav>
                             </section>
                             { visibleProfileUser && <div onClick={handleVisibleProfileUser}></div> }
                         </ProfileUser>
                     </User>
-                
+
                     <MobMenuRigth isVisible={visibleMobUserMenu}>
                         <BsTextRight onClick={handleVisibleMenu} size={30} color="#ffff"></BsTextRight>
                         <button onClick={handleVisibleMobUserMenu}>
@@ -1497,10 +1499,10 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                     <span>Kaio</span>
                     <button>K</button>
                 </User>
-            
+
             </MobSubHeader>
             <SubHeader isVisible={visibleMobUserMenu}>
-                
+
                 <SubHeaderConsultivo>
                     <div>
                         <h1>Acompanhamento</h1>
@@ -1652,13 +1654,13 @@ type HeaderProps = HtmlHTMLAttributes<HTMLElement>;
                                     </Link>
                                 </li>
                             </ul>
-                            
+
                         </ConteinerFooter>
                     </ul>
                 </SubHeaderConsultivoMob>
-            
+
             </SubHeader>
-            
+
         </Container>
         )
         };

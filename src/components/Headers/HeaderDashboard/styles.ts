@@ -2,11 +2,11 @@ import styled, { keyframes, css } from 'styled-components';
 
 export const SubHeaderMob = styled.div`
     transition: all 0.3s ease;
-    height: 54px;   
+    height: 54px;
     width: 95%;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    
+
     display: none;
     justify-content: flex-end;
     align-items: center;
@@ -51,7 +51,7 @@ export const SubHeaderMob = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
             margin-right: 10px;
             padding: 10px;
             background-color: #f3f6f947;
@@ -104,7 +104,7 @@ export const MobSubHeader = styled.div<MobMenuUserProps>`
     div {
         margin-right: -10px;
     }
-    height: 54px;   
+    height: 54px;
     width: 90%;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -115,13 +115,13 @@ export const MobSubHeader = styled.div<MobMenuUserProps>`
     z-index: -100;
     @media (max-width: 900px) {
         display: flex;
-        
+
     }
 `;
 
 export const SubHeaderDashboard = styled.div`
 
-    height: 100%;   
+    height: 100%;
     width: 90%;
     box-sizing: border-box;
 
@@ -136,8 +136,8 @@ export const SubHeaderDashboard = styled.div`
         align-items: center;
         svg {
             height: 23px;
-            width: 23px;  
-            cursor: default;  
+            width: 23px;
+            cursor: default;
             margin-right: 5px;
         }
         span {
@@ -190,7 +190,7 @@ export const SubHeaderDashboard = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
             padding: 10px;
             background-color: #f3f6f947;
             margin-left: 14px;
@@ -206,9 +206,9 @@ export const SubHeaderDashboard = styled.div`
     @media (max-width: 900px) {
         ul {
             li {
-                
+
                 display: none;
-                
+
             }
             > div {
                 span {
@@ -251,7 +251,7 @@ export const RigthNav = styled.div`
     > button {
         display: flex;
         align-items: center;
-        
+
         border-radius: 4px;
         margin-right: 10px;
         width: 40px;
@@ -298,9 +298,9 @@ export const MobMenuRigth = styled.div<MobMenuRigthProps>`
     align-items: center;
     > svg {
         display: none;
-        
+
         margin-right: 10px;
-        
+
     }
 
 
@@ -311,7 +311,7 @@ export const MobMenuRigth = styled.div<MobMenuRigthProps>`
         }
         button {
             svg {
-                transition: transform 0.3s ease;  
+                transition: transform 0.3s ease;
                 margin-top: 5px;
 
                 transform: ${({ isVisible }) => isVisible ? "rotate(0grad)" : "rotate(50grad)" };
@@ -334,7 +334,7 @@ export const LeftNav = styled.div`
     > ul {
         width: 295px;
     }
-    
+
     box-sizing: border-box;
     img {
         height: 35px;
@@ -345,7 +345,7 @@ export const LeftNav = styled.div`
         background-color: #F3F6F9;
         box-sizing: border-box;
         border: 0;
-        color: #3F4254;    
+        color: #3F4254;
         font-weight: 400;
         line-height: 1.5;
         font-size: 1rem;
@@ -385,7 +385,7 @@ export const MenuLeft = styled.div<MenuLeftProps>`
     transition: all 0.3s ease;
 
     box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
-    
+
     position: fixed;
     top: 0;
     left: ${({ isVisible }) => isVisible ? "0px" : "-295px" };
@@ -395,11 +395,11 @@ export const MenuLeft = styled.div<MenuLeftProps>`
     background: white;
     color: #3F4254;
     z-index: 1001;
-    
+
     svg {
         width: 24px;
     }
-    
+
     > div {
         position: fixed;
         top: 0;
@@ -422,7 +422,7 @@ export const MenuLeft = styled.div<MenuLeftProps>`
         padding: 15px 0;
 
         box-sizing: border-box;
-        
+
         section {
             display: flex;
             justify-content: space-between;
@@ -466,7 +466,7 @@ export const MenuLeft = styled.div<MenuLeftProps>`
                 text-decoration: none;
                 position: relative;
                 color: #3F4254;
-                
+
                 svg {
                     margin-right: 20px;
                 }
@@ -503,7 +503,7 @@ export const MenuLeft = styled.div<MenuLeftProps>`
                 opacity: 0;
                 z-index: -1101;
                 li {
-                    height: 0;       
+                    height: 0;
                     transition: all 0.3s;
                     visibility: hidden;
                     display: flex;
@@ -550,14 +550,14 @@ export const MenuLeft = styled.div<MenuLeftProps>`
                     transform: rotateZ(90deg);
                 }
             }
-                
+
             ul {
                 opacity: 1;
                 li {
                     animation: ${subMenuOpen} 0.3s;
                     height: 40px;
                     visibility: visible;
-                    
+
                 }
             }
         `}
@@ -569,17 +569,17 @@ export const MenuLeft = styled.div<MenuLeftProps>`
                     transform: rotateZ(90deg);
                 }
             }
-            
+
             ul {
                 opacity: 1;
                 li {
                     animation: ${subMenuOpen} 0.3s;
                     height: 40px;
                     visibility: visible;
-                    
+
                 }
             }
-                
+
         `}
     }
 
@@ -593,7 +593,7 @@ export const MenuSearch = styled.div<MenuSearchProps>`
     transition: left 0.3s ease, right 0.3s ease, bottom 0.3s ease, top 0.3s ease;
 
     box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
-    
+
     position: fixed;
     top: 0;
     right: ${({ isVisible }) => isVisible ? "0px" : "-350px" };
@@ -608,8 +608,8 @@ export const MenuSearch = styled.div<MenuSearchProps>`
     > svg {
         width: 24px;
     }
-    
-    
+
+
     > ul {
         overflow-y: scroll;
         z-index: 1101;
@@ -676,7 +676,8 @@ export const MenuSearch = styled.div<MenuSearchProps>`
             margin-top: 30px;
             padding-bottom: 20px;
             border-bottom: 1px solid #EBEDF3;
-            
+
+
             input {
                 color: #7E8299;
                 font-weight: 500;
@@ -746,9 +747,9 @@ export const QuickActions = styled.div<QuickActionsProps>`
         position: absolute;
         margin-top: 80px;
         margin-left: -400px;
-    
+
         opacity: ${({ isVisible }) => isVisible ? "1" : "0" };
-    
+
         transform: ${({ isVisible }) => isVisible ? "translate3d(0,0,0)" : "translate3d(0,10px,0)" };
         list-style: none;
         box-sizing: border-box;
@@ -825,7 +826,7 @@ export const QuickActions = styled.div<QuickActionsProps>`
                 }
             }
         }
-    }    
+    }
 
     > div {
         position: fixed;
@@ -951,11 +952,11 @@ export const ProfileUser = styled.div<ProfileUserProps>`
         display: ${({ isVisible }) => isVisible ? "block" : "none" };
         background-color: #FFFFFF;
         position: absolute;
-        
+
         margin-left: -400px;
-    
+
         opacity: ${({ isVisible }) => isVisible ? "1" : "0" };
-    
+
         transform: ${({ isVisible }) => isVisible ? "translate3d(0,0,0)" : "translate3d(0,10px,0)" };
         list-style: none;
         box-sizing: border-box;
@@ -970,7 +971,7 @@ export const ProfileUser = styled.div<ProfileUserProps>`
             display: ${({ isVisible }) => isVisible ? "flex" : "none" };
             justify-content: space-between;
             align-items: center;
-            
+
             margin-bottom: 10px;
             border-bottom: 1px solid #EBEDF3;
 
@@ -1057,14 +1058,14 @@ export const ProfileUser = styled.div<ProfileUserProps>`
                     }
                 }
             }
-        }  
+        }
 
         nav {
             display: ${({ isVisible }) => isVisible ? "flex" : "none" };
             justify-content: space-around;
             padding: 20px;
-            
-            a {
+
+            div {
                 cursor: pointer;
                 color: #6993FF;
                 background-color: #E1E9FF;
@@ -1076,7 +1077,7 @@ export const ProfileUser = styled.div<ProfileUserProps>`
                 text-decoration: none;
                 border-radius: 0.42rem;
 
-                & + a {
+                & + div {
                     font-weight: normal;
                     color: #B5B5C3;
                     background-color: transparent;
@@ -1130,7 +1131,7 @@ export const ProfileUser = styled.div<ProfileUserProps>`
             }
         }
     }
-    
+
 `;
 
 interface UserNotificationsProps {
@@ -1145,9 +1146,9 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
         position: absolute;
         margin-top: 80px;
         margin-left: -400px;
-    
+
         opacity: ${({ isVisible }) => isVisible ? "1" : "0" };
-    
+
         transform: ${({ isVisible }) => isVisible ? "translate3d(0,0,0)" : "translate3d(0,10px,0)" };
         list-style: none;
         box-sizing: border-box;
@@ -1246,7 +1247,7 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
                 }
             }
         }
-    }    
+    }
 
     > div {
         position: fixed;
@@ -1297,7 +1298,7 @@ export const UserNotifications = styled.div<UserNotificationsProps>`
                 }
             }
         }
-        
+
     }
 `;
 
@@ -1430,7 +1431,7 @@ export const QuickPanel = styled.div<QuickPanelProps>`
     transition: left 0.3s ease, right 0.3s ease, bottom 0.3s ease, top 0.3s ease;
 
     box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
-    
+
     position: fixed;
     top: 0;
     right: ${({ isVisible }) => isVisible ? "0px" : "-395px" };
@@ -1440,7 +1441,7 @@ export const QuickPanel = styled.div<QuickPanelProps>`
     background: white;
     color: #3F4254;
     z-index: 1101;
-    
+
     .btn-qp-al {
         color: ${({ PAL }) => PAL ? "#6993FF" : "#7E8299" };
         border-bottom: ${({ PAL }) => PAL ? "#6993FF 3px solid" : "#6993ff00 3px solid"};
@@ -1457,7 +1458,7 @@ export const QuickPanel = styled.div<QuickPanelProps>`
     }
 
     > section {
-        
+
         z-index: 1101;
         box-shadow: 0px 1px 9px -3px rgba(0, 0, 0, 0.75);
         background: #ffffff;
@@ -1474,7 +1475,7 @@ export const QuickPanel = styled.div<QuickPanelProps>`
             display: flex;
             align-items: center;
             justify-content: space-around;
-            
+
             > div {
                 margin-top: 10px;
                 > button {
@@ -1527,7 +1528,7 @@ export const QuickPanel = styled.div<QuickPanelProps>`
             max-width: 395px;
         }
     }
-    
+
 `;
 
 interface AuditLogsProps {
@@ -1566,14 +1567,14 @@ export const AuditLogsSystem = styled.section<AuditLogsProps>`
             justify-content: flex-start;
             align-items: center;
             width: 100%;
-            
+
             .c-default {
                 cursor: default;
                 width: 50px;
                 height: 50px;
                 margin-left: 0;
             }
-            
+
             div + span {
                 padding: 5px 10px;
                 &:hover {
@@ -1582,7 +1583,7 @@ export const AuditLogsSystem = styled.section<AuditLogsProps>`
             }
             span {
                 margin-left: auto;
-                    
+
                 img {
                     width: 30px;
                     height: 30px;
@@ -1609,7 +1610,7 @@ export const AuditLogsSystem = styled.section<AuditLogsProps>`
                     font-size: 14px;
                     color: #B5B5C3;
                 }
-            }   
+            }
         }
     }
     @media (max-width: 900px) {
@@ -1627,7 +1628,7 @@ export const AuditLogsSystem = styled.section<AuditLogsProps>`
             }
         }
     }
-    
+
 `;
 
 export const AuditLogsNotifications = styled.section<AuditLogsProps>`
@@ -1635,7 +1636,7 @@ export const AuditLogsNotifications = styled.section<AuditLogsProps>`
     .bc-1 {
         background-color: #FFF4DE;
         span {
-           
+
         }
         path {
             fill: #FFA800;
@@ -1651,7 +1652,7 @@ export const AuditLogsNotifications = styled.section<AuditLogsProps>`
     .bc-2 {
         background-color: #C9F7F5;
         span {
-           
+
         }
         path {
             fill: #1BC5BD;
@@ -1667,7 +1668,7 @@ export const AuditLogsNotifications = styled.section<AuditLogsProps>`
     .bc-3 {
         background-color: #FFE2E5;
         span {
-           
+
         }
         path {
             fill: #F64E60;
@@ -1683,7 +1684,7 @@ export const AuditLogsNotifications = styled.section<AuditLogsProps>`
     .bc-4 {
         background-color: #EEE5FF;
         span {
-           
+
         }
         path {
             fill: #8950FC;
@@ -1712,7 +1713,7 @@ export const AuditLogsNotifications = styled.section<AuditLogsProps>`
         li {
 
             > span {
-                
+
                 width: auto;
                 height: auto;
                 cursor: pointer;
@@ -1729,17 +1730,17 @@ export const AuditLogsNotifications = styled.section<AuditLogsProps>`
             justify-content: flex-start;
             align-items: center;
             width: 100%;
-            
+
             padding: 10px;
             border-radius: 4px;
             .c-default {
                 cursor: default;
                 margin-left: 0;
             }
-            
+
             span {
                 margin-left: auto;
-                    
+
                 svg {
                     cursor: default;
                     height: 20px;
@@ -1782,10 +1783,10 @@ export const AuditLogs = styled.section<AuditLogsProps>`
     overflow-y: scroll;
     padding: 15px 30px;
     padding-top: 230px;
-    
+
     @media (max-width: 900px) {
         padding-top: 60px;
-        
+
     }
 `;
 
@@ -1871,9 +1872,9 @@ export const QPNotifications = styled.section<QPNotificationsProps>`
             justify-content: flex-start;
             align-items: center;
             width: 100%;
-            
+
             span {
-                    
+
                 img {
                     width: 20px;
                     height: 20px;
@@ -1881,7 +1882,7 @@ export const QPNotifications = styled.section<QPNotificationsProps>`
             }
 
             div {
-                
+
                 display: ${({ isVisible }) => isVisible ? "flex" : "none" };
                 flex-direction: column;
                 margin-left: 20px;
@@ -1910,7 +1911,7 @@ export const QPNotifications = styled.section<QPNotificationsProps>`
             padding-top: 0;
        }
    }
-    
+
 `;
 
 interface QPSettingsProps {
@@ -2031,12 +2032,12 @@ export const QPSettings = styled.section<QPSettingsProps>`
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
-                
+
                 div {
                     cursor: pointer;
                     display: flex;
                     align-items: center;
-                    
+
 
                     margin: 2px 0;
                     height: 24px;
@@ -2054,14 +2055,14 @@ export const QPSettings = styled.section<QPSettingsProps>`
                         border-radius: 12px;
                         background-color: #F1F1F1;
                     }
-                    
+
                 }
-                    
+
             }
         }
-        
+
     }
-    
+
 `;
 
 
@@ -2131,7 +2132,7 @@ export const Block = styled.div<ToolProps>`
             &:hover > a section svg g rect + rect {
                 fill: #6993ff73;
             }
-            
+
             > section {
                 z-index: 1101;
                 transition: all 0.3s ease;
@@ -2141,7 +2142,7 @@ export const Block = styled.div<ToolProps>`
 
                 box-shadow: 0px 15px 50px 0px rgba(82, 63, 105, 0.15);
                 left: 282px;
-                
+
                 opacity: 0;
                 transform: translate3d(0,10px,0);
                 box-sizing: border-box;
@@ -2150,13 +2151,13 @@ export const Block = styled.div<ToolProps>`
                 border-radius: 4px;
 
                 > ul {
-                    
-                    
+
+
                     > li {
                         display: flex;
                         align-items: center;
                         width: 250px;
-                        
+
                         a {
                             cursor: pointer;
                             padding: 11px 10px;
@@ -2194,10 +2195,10 @@ export const Block = styled.div<ToolProps>`
 
                     svg {
                         margin-right: 20px;
-                        
+
                     }
                 }
-                
+
                 text-decoration: none;
                 position: relative;
                 color: #3F4254;
@@ -2207,7 +2208,7 @@ export const Block = styled.div<ToolProps>`
                     font-size: 13px;
                 }
             }
-            
+
         }
     }
 `;
